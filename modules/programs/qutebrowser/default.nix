@@ -39,10 +39,16 @@
       url = "https://update.greasyfork.org/scripts/575941/1836031/YouTube%20Ads-Bypass.user.js";
       hash = "sha256-SdANPGG210MgZo6FZO0REUuzA6rBTHGbuQ7s8wEHUDA=";
     };
-    removeYtShorts = pkgs.fetchurl {
-      url = "https://update.greasyfork.org/scripts/522057/1865541/Remove%20YouTube%20Shorts.user.js";
-      hash = "sha256-HAOh7QQm4SXT9X+fJ1x4paa2+P0KXoznZMm8Dxmd6gs=";
-    };
+    removeYtShorts =
+      pkgs.runCommand "remove-yt-shorts.user.js" {
+        src = pkgs.fetchurl {
+          url = "https://update.greasyfork.org/scripts/522057/1865541/Remove%20YouTube%20Shorts.user.js";
+          hash = "sha256-HAOh7QQm4SXT9X+fJ1x4paa2+P0KXoznZMm8Dxmd6gs=";
+        };
+      } ''
+        sed 's/@run-at *document-start/@run-at document-end/' $src > $out
+        grep -q '@run-at document-end' $out
+      '';
   };
 in {
   nixpkgs.overlays = [overlay];
