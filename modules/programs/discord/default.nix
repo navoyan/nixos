@@ -26,5 +26,6 @@
 
   my.xdgDirectSymlinks.config.vesktop = localLib.path.join "programs/discord" [
     "./themes"
+    "./settings.json"
   ];
 }
