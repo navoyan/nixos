@@ -8,7 +8,7 @@
     fishPlugins.tide
   ];
 
-  my.xdgDirectSymlinks.config.fish = localLib.path.join "programs/fish" [
+  my.outOfStoreSymlinks.config.fish = localLib.symlinks.mkSources "programs/fish" [
     "./config.fish"
     "./user_functions"
     "./themes"

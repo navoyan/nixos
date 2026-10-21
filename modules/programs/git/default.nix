@@ -4,7 +4,7 @@
     lfs.enable = true;
   };
 
-  my.xdgDirectSymlinks.config.git = localLib.path.join "programs/git" [
+  my.outOfStoreSymlinks.config.git = localLib.symlinks.mkSources "programs/git" [
     "./config"
   ];
 }

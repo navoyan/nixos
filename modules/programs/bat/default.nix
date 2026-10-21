@@ -1,5 +1,5 @@
 {pkgs, ...}: {
   environment.systemPackages = [pkgs.bat];
 
-  my.xdgDirectSymlinks.config.bat = "programs/bat";
+  my.outOfStoreSymlinks.config.bat = "programs/bat";
 }

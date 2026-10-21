@@ -5,11 +5,11 @@
 }: {
   environment.systemPackages = [pkgs.wiremix];
 
-  my.xdgDirectSymlinks = {
-    config.wiremix = localLib.path.join "programs/wiremix" [
+  my.outOfStoreSymlinks = {
+    config.wiremix = localLib.symlinks.mkSources "programs/wiremix" [
       "./wiremix.toml"
     ];
-    data.applications = localLib.path.join "programs/wiremix" [
+    data.applications = localLib.symlinks.mkSources "programs/wiremix" [
       "./wiremix.desktop"
     ];
   };

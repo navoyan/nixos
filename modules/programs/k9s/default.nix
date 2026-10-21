@@ -1,3 +1,3 @@
 {
-  my.xdgDirectSymlinks.config.k9s = "programs/k9s";
+  my.outOfStoreSymlinks.config.k9s = "programs/k9s";
 }

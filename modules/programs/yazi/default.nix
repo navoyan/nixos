@@ -20,7 +20,7 @@ in {
     [yazi]
     ++ _7zJailedPackages;
 
-  my.xdgDirectSymlinks.config.yazi = localLib.path.join "programs/yazi" [
+  my.outOfStoreSymlinks.config.yazi = localLib.symlinks.mkSources "programs/yazi" [
     "./yazi.toml"
     "./keymap.toml"
     "./theme.toml"

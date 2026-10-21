@@ -26,7 +26,7 @@
     shellcheck
   ];
 
-  my.xdgDirectSymlinks.config.nvim = "programs/nvim";
+  my.outOfStoreSymlinks.config.nvim = "programs/nvim";
 
   hj.environment.sessionVariables = {
     EDITOR = "nvim";

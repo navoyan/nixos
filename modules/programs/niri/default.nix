@@ -3,5 +3,5 @@
 
   environment.systemPackages = [pkgs.xwayland-satellite];
 
-  my.xdgDirectSymlinks.config.niri = "programs/niri";
+  my.outOfStoreSymlinks.config.niri = "programs/niri";
 }

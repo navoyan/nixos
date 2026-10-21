@@ -122,5 +122,5 @@ in {
     permissions = permissionsWithNetwork;
   };
 
-  my.xdgDirectSymlinks.config.mpv = "programs/mpv";
+  my.outOfStoreSymlinks.config.mpv = "programs/mpv";
 }

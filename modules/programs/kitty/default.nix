@@ -14,7 +14,7 @@
     TERMINAL = "kitty";
   };
 
-  my.xdgDirectSymlinks.config.kitty = localLib.path.join "programs/kitty" [
+  my.outOfStoreSymlinks.config.kitty = localLib.symlinks.mkSources "programs/kitty" [
     "./kitty.conf"
     "./tokyonight.conf"
     "./tab_bar.py"

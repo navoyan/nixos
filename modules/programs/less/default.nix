@@ -3,5 +3,5 @@
     LESSHISTFILE = "$HOME/.local/state/lesshst";
   };
 
-  my.xdgDirectSymlinks.config.lesskey = "programs/less/lesskey";
+  my.outOfStoreSymlinks.config.lesskey = "programs/less/lesskey";
 }

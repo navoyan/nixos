@@ -5,5 +5,5 @@
     })
   ];
 
-  my.xdgDirectSymlinks.config.rofi = "programs/rofi";
+  my.outOfStoreSymlinks.config.rofi = "programs/rofi";
 }

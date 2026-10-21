@@ -15,7 +15,7 @@
       ];
   };
 
-  my.xdgDirectSymlinks.config.imv = "programs/imv";
+  my.outOfStoreSymlinks.config.imv = "programs/imv";
 
   hj.xdg.mime-apps = {
     added-associations = {

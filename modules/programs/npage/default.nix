@@ -6,5 +6,5 @@
     MANPAGER = "env NVIM_APPNAME=npage nvim +Man!";
   };
 
-  my.xdgDirectSymlinks.config.npage = "programs/npage";
+  my.outOfStoreSymlinks.config.npage = "programs/npage";
 }

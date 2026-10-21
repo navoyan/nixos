@@ -4,5 +4,5 @@
     pkgs.rofi-rbw-wayland
   ];
 
-  my.xdgDirectSymlinks.config."rofi-rbw.rc" = "programs/rofi-rbw/rofi-rbw.rc";
+  my.outOfStoreSymlinks.config."rofi-rbw.rc" = "programs/rofi-rbw/rofi-rbw.rc";
 }

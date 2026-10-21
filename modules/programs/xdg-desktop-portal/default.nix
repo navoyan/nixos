@@ -8,5 +8,5 @@
     ];
   };
 
-  my.xdgDirectSymlinks.config.xdg-desktop-portal = "programs/xdg-desktop-portal";
+  my.outOfStoreSymlinks.config.xdg-desktop-portal = "programs/xdg-desktop-portal";
 }

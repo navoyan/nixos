@@ -119,7 +119,7 @@ in {
       ];
   };
 
-  my.xdgDirectSymlinks.config.qutebrowser = localLib.path.join "programs/qutebrowser" [
+  my.outOfStoreSymlinks.config.qutebrowser = localLib.symlinks.mkSources "programs/qutebrowser" [
     "./config.py"
     "./tokyonight.py"
     "./jseval"
