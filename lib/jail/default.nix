@@ -47,7 +47,7 @@
 
         # configs:
         (set-hostname config.networking.hostName)
-        (defer (readonly (noescape "~/dotfiles")))
+        (defer (readonly config.programs.nh.flake))
       ];
   };
 

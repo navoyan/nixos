@@ -34,7 +34,7 @@
       ];
   };
 
-  my.xdgDirectSymlinks.data.applications = localLib.path.join "programs/chromium" [
+  my.outOfStoreSymlinks.data.applications = localLib.symlinks.mkSources "programs/chromium" [
     "./google-meet.desktop"
   ];
 }

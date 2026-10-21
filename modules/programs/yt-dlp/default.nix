@@ -1,3 +1,3 @@
 {
-  my.xdgDirectSymlinks.config.yt-dlp = "programs/yt-dlp";
+  my.outOfStoreSymlinks.config.yt-dlp = "programs/yt-dlp";
 }

@@ -18,7 +18,7 @@
     QT_QPA_PLATFORMTHEME = "qt6ct";
   };
 
-  my.xdgDirectSymlinks = let
+  my.outOfStoreSymlinks = let
     base = "theming/qt";
   in {
     config.qt6ct = "${base}/qt6ct";

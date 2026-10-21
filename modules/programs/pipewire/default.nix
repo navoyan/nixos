@@ -1,3 +1,3 @@
 {
-  my.xdgDirectSymlinks.config.pipewire = "programs/pipewire";
+  my.outOfStoreSymlinks.config.pipewire = "programs/pipewire";
 }

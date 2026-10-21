@@ -4,5 +4,5 @@
     silent = true;
   };
 
-  my.xdgDirectSymlinks.config.direnv = "programs/direnv";
+  my.outOfStoreSymlinks.config.direnv = "programs/direnv";
 }

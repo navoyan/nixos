@@ -1,4 +1,4 @@
 args: {
   jail = import ./jail args;
-  path = import ./path.nix args;
+  symlinks = import ./symlinks.nix args;
 }

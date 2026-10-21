@@ -24,7 +24,7 @@
       ];
   };
 
-  my.xdgDirectSymlinks.config.vesktop = localLib.path.join "programs/discord" [
+  my.outOfStoreSymlinks.config.vesktop = localLib.symlinks.mkSources "programs/discord" [
     "./themes"
     "./settings.json"
   ];
