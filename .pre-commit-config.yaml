@@ -1,4 +1,4 @@
-# yaml-language-server: $schema=https://raw.githubusercontent.com/j178/prek/refs/heads/master/prek.schema.json
+# yaml-language-server: $schema=https://raw.githubusercontent.com/j178/prek/refs/heads/main/prek.schema.json
 
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
