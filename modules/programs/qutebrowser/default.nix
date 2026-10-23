@@ -110,6 +110,9 @@ in {
         (add-pkg-deps [pkgs.yazi])
         (readonly (noescape "~/.config/yazi"))
         (readwrite (noescape "~/.cache/yazi"))
+
+        # scripts:
+        (add-pkg-deps [pkgs.gnused pkgs.libnotify])
       ];
   };
 
@@ -117,6 +120,7 @@ in {
     "./config.py"
     "./tokyonight.py"
     "./jseval"
+    "./userscripts"
     "./content.css"
     "./greasemonkey"
   ];

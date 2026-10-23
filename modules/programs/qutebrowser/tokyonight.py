@@ -308,6 +308,5 @@ c.colors.tooltip.bg = base00
 # Foreground color of tooltips.
 c.colors.tooltip.fg = base05
 
-# Background color for webpages if unset (or empty to use the theme's
-# color).
-# c.colors.webpage.bg = base00
+# Background color for webpages if unset (or empty to use the theme's color).
+c.colors.webpage.bg = base01

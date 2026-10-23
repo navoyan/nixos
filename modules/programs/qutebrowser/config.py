@@ -129,6 +129,8 @@ for key in keys_to_change:
     config.unbind(key)
     config.bind("T" + key[1:], default_binds[key])
 
+config.bind("Td", "spawn --userscript darkreader-exclude.sh")
+
 config.bind("t", "cmd-set-text -sr :tab-select")
 config.bind("gt", "cmd-set-text -sr :tab-focus")
 
