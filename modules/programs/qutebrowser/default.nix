@@ -39,16 +39,10 @@
       url = "https://update.greasyfork.org/scripts/575941/1836031/YouTube%20Ads-Bypass.user.js";
       hash = "sha256-SdANPGG210MgZo6FZO0REUuzA6rBTHGbuQ7s8wEHUDA=";
     };
-    removeYtShorts =
-      pkgs.runCommand "remove-yt-shorts.user.js" {
-        src = pkgs.fetchurl {
-          url = "https://update.greasyfork.org/scripts/522057/1865541/Remove%20YouTube%20Shorts.user.js";
-          hash = "sha256-HAOh7QQm4SXT9X+fJ1x4paa2+P0KXoznZMm8Dxmd6gs=";
-        };
-      } ''
-        sed 's/@run-at *document-start/@run-at document-end/' $src > $out
-        grep -q '@run-at document-end' $out
-      '';
+    ytShortsBlocker = pkgs.fetchurl {
+      url = "https://update.greasyfork.org/scripts/471062/1621848/YouTube%20Shorts%20Blocker.user.js";
+      hash = "sha256-OLJVeAi2qLwWtaHTExbjxKbREGN3O/mTT7jdsgHuWcQ=";
+    };
   };
 in {
   nixpkgs.overlays = [overlay];
@@ -70,7 +64,7 @@ in {
 
         (add-pkg-deps [
           thirdPartyScripts.ytAdsBypass
-          thirdPartyScripts.removeYtShorts
+          thirdPartyScripts.ytShortsBlocker
         ])
 
         (dbus {
@@ -129,7 +123,7 @@ in {
 
   hj.xdg.data.files = {
     "qutebrowser/greasemonkey/yt_ads_bypass.js".source = thirdPartyScripts.ytAdsBypass;
-    "qutebrowser/greasemonkey/remove_yt_shorts.js".source = thirdPartyScripts.removeYtShorts;
+    "qutebrowser/greasemonkey/yt_shorts_blocker.js".source = thirdPartyScripts.ytShortsBlocker;
   };
 
   hj.xdg.mime-apps = {
