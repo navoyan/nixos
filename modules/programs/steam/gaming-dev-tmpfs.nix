@@ -38,13 +38,6 @@ in {
     "L+ ${jailDevDir}/stderr - - - - /proc/self/fd/2"
   ];
 
-  # make sure nothing that touches the tmpfs runs before it is mounted:
-  systemd.services = {
-    systemd-tmpfiles-setup.unitConfig.RequiresMountsFor = jailDevDir;
-    systemd-udevd.unitConfig.RequiresMountsFor = jailDevDir;
-    systemd-udev-trigger.unitConfig.RequiresMountsFor = jailDevDir;
-  };
-
   services.udev.extraRules = let
     mirror = lib.getExe (pkgs.writeShellApplication {
       name = "jail-gaming-dev-mirror";
@@ -55,9 +48,8 @@ in {
         stage=${jailDevDir}/.stage
         case "$action" in
           add)
-            # to be extra safe:
-            mkdir --mode 0700 "$stage"
-            mkdir --mode 0755 "$dir"
+            install --directory --mode 0700 --owner root --group root "$stage"
+            install --directory --mode 0755 --owner root --group root "$dir"
 
             rm --force -- "$stage/$name"
             mknod --mode 0600 "$stage/$name" c "$MAJOR" "$MINOR"
