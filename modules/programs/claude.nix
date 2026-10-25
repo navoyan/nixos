@@ -32,7 +32,7 @@
         # projects:
         mount-cwd
         (readwrite (noescape "~/projects"))
-        (readwrite (noescape "~/dotfiles"))
+        (readwrite (noescape "~/nixos"))
         (readwrite (noescape "~/vaults"))
 
         # workflow:

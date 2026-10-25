@@ -6,14 +6,14 @@
             ]
         },
         "nixpkgs": {
-            "expr": "import (builtins.getFlake \"/home/narek/dotfiles\").inputs.nixpkgs { }"
+            "expr": "import (builtins.getFlake \"/home/narek/nixos\").inputs.nixpkgs { }"
         },
         "options": {
             "nixos": {
-                "expr": "(builtins.getFlake \"/home/narek/dotfiles\").nixosConfigurations.nixos-desktop.options"
+                "expr": "(builtins.getFlake \"/home/narek/nixos\").nixosConfigurations.nixos-desktop.options"
             },
             "hjem": {
-                "expr": "(builtins.getFlake \"/home/narek/dotfiles\").nixosConfigurations.nixos-desktop.options.hjem.users.type.getSubOptions [ ]"
+                "expr": "(builtins.getFlake \"/home/narek/nixos\").nixosConfigurations.nixos-desktop.options.hjem.users.type.getSubOptions [ ]"
             }
         }
     }

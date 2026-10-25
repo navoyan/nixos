@@ -12,7 +12,7 @@
 
   hj.directory = "/home/${user}";
 
-  programs.nh.flake = "${config.hj.directory}/dotfiles";
+  programs.nh.flake = "${config.hj.directory}/nixos";
 
   services.snapper.configs = {
     home = {

@@ -10,7 +10,7 @@
     XDG_STATE_HOME = "$HOME/.local/state";
 
     PATH = [
-      "$HOME/dotfiles/modules/scripts"
+      "$HOME/nixos/modules/scripts"
       "$HOME/.local/share/goverlay/gameconfig/global"
       "$PATH"
     ];
