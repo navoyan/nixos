@@ -7,13 +7,6 @@
     inputs.apple-emoji-nix.overlays.default
   ];
 
-  services.displayManager.ly = {
-    enable = true;
-    settings = {
-      session_log = ".local/state/ly/session.log";
-    };
-  };
-
   fonts = {
     packages = with pkgs; [
       noto-fonts
@@ -30,35 +23,4 @@
       };
     };
   };
-
-  programs.dconf = {
-    enable = true;
-    profiles.user.databases = [
-      {
-        lockAll = true;
-        settings = {
-          "org/gnome/desktop/interface" = {
-            color-scheme = "prefer-dark";
-          };
-        };
-      }
-    ];
-  };
-
-  environment.systemPackages = with pkgs; [
-    wl-clipboard
-    handlr-regex
-    (lib.hiPrio (
-      writeShellScriptBin "xdg-open" ''
-        exec ${handlr-regex}/bin/handlr open "$@"
-      ''
-    ))
-
-    hyprpicker
-    xwininfo
-
-    awww
-    cliphist
-    swayidle
-  ];
 }

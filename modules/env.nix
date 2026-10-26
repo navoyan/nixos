@@ -9,12 +9,6 @@
     XDG_DATA_HOME = "$HOME/.local/share";
     XDG_STATE_HOME = "$HOME/.local/state";
 
-    PATH = [
-      "$HOME/nixos/modules/scripts"
-      "$HOME/.local/share/goverlay/gameconfig/global"
-      "$PATH"
-    ];
-
     NIXOS_OZONE_WL = "1";
 
     AWWW_TRANSITION = "any";
