@@ -7,7 +7,8 @@
     cli.default
     desktop.default
 
-    ./hardware.nix
+    ./scan.nix
+    ./filesystems.nix
     ./boot.nix
     ./networking.nix
     ./user.nix
