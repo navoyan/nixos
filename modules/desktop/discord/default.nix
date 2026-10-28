@@ -1,5 +1,5 @@
 {localLib, ...}: {
-  my.jail.vesktop = {
+  my.jails.vesktop = {
     enable = true;
     bootstrapService.enable = true;
     permissions = combinators:

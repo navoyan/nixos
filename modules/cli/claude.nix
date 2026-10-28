@@ -1,5 +1,5 @@
 {pkgs, ...}: {
-  my.jail.claude = {
+  my.jails.claude = {
     enable = true;
     bootstrapService.enable = false;
     package = pkgs.claude-code;

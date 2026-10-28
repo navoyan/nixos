@@ -7,7 +7,7 @@
     inputs.spicetify-nix.nixosModules.default
   ];
 
-  my.jail.spotify = {
+  my.jails.spotify = {
     enable = true;
     bootstrapService.enable = true;
     package = config.programs.spicetify.spicedSpotify;

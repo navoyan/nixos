@@ -1,5 +1,5 @@
 {
-  my.jail.mongodb-compass = {
+  my.jails.mongodb-compass = {
     enable = true;
     bootstrapService.enable = true;
     permissions = combinators:

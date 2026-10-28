@@ -5,7 +5,7 @@
   config,
   ...
 }: let
-  enabledJails = config.my.jail |> lib.filterAttrs (_: jailCfg: jailCfg.enable);
+  enabledJails = config.my.jails |> lib.filterAttrs (_: jailCfg: jailCfg.enable);
   bootstrappedJails = enabledJails |> lib.filterAttrs (_: jailCfg: jailCfg.bootstrapService.enable);
 
   # connects to the jail socket and passes argv
@@ -36,7 +36,7 @@
     );
 in {
   options = {
-    my.jail = lib.options.mkOption {
+    my.jails = lib.options.mkOption {
       type = lib.types.attrsOf (lib.types.submodule ({name, ...}: {
         options = {
           enable = lib.mkEnableOption "jail for ${name}";

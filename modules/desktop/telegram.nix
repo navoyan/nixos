@@ -1,5 +1,5 @@
 {pkgs, ...}: {
-  my.jail.Telegram = {
+  my.jails.Telegram = {
     enable = true;
     bootstrapService.enable = true;
     package = pkgs.telegram-desktop;

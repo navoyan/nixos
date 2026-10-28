@@ -1,5 +1,5 @@
 {pkgs, ...}: {
-  my.jail.zathura = {
+  my.jails.zathura = {
     enable = true;
     bootstrapService.enable = true;
     package = pkgs.zathura.override {

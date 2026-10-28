@@ -99,21 +99,21 @@
 in {
   nixpkgs.overlays = [overlay];
 
-  my.jail.mpv = {
+  my.jails.mpv = {
     enable = true;
     bootstrapService.enable = true;
     package = mpv;
     inherit permissions;
   };
 
-  my.jail.mpv-dl = {
+  my.jails.mpv-dl = {
     enable = true;
     bootstrapService.enable = false;
     package = mpv;
     permissions = permissionsWithNetwork;
   };
 
-  my.jail.mpv-handler = {
+  my.jails.mpv-handler = {
     enable = true;
     bootstrapService.enable = false;
     package = pkgs.mpv-handler.override {

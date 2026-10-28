@@ -1,5 +1,5 @@
 {
-  my.jail.imv = {
+  my.jails.imv = {
     enable = true;
     bootstrapService.enable = true;
     permissions = combinators:

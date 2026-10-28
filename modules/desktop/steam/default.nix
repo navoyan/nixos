@@ -53,7 +53,7 @@ in {
     autoStart = false;
   };
 
-  my.jail.steam = {
+  my.jails.steam = {
     enable = true;
     bootstrapService.enable = false;
     package = config.programs.steam.package;

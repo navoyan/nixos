@@ -3,7 +3,7 @@
   localLib,
   ...
 }: {
-  my.jail.chromium = {
+  my.jails.chromium = {
     enable = true;
     bootstrapService.enable = true;
     package = pkgs.ungoogled-chromium;

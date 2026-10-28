@@ -1,5 +1,5 @@
 {
-  my.jail.qbittorrent = {
+  my.jails.qbittorrent = {
     enable = true;
     bootstrapService.enable = true;
     permissions = combinators:

@@ -47,7 +47,7 @@
 in {
   nixpkgs.overlays = [overlay];
 
-  my.jail.qutebrowser = {
+  my.jails.qutebrowser = {
     enable = true;
     bootstrapService.enable = true;
     package = pkgs.qutebrowser.override {
