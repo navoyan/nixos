@@ -3,25 +3,24 @@
   pkgs,
   lib,
   jail-nix,
-  import-tree,
   ...
-} @ args: rec {
+} @ args: let
+  inherit (lib) mergeAttrsList;
+in rec {
   bin = jail-nix.lib.extend {
     inherit pkgs;
 
     additionalCombinators = builtinCombinators:
-      (import-tree.leaves ./combinators)
-      |> map (
-        x:
-          import x (
-            args
-            // {
-              inherit builtinCombinators;
-              inherit (bin) combinators;
-            }
-          )
-      )
-      |> lib.mergeAttrsList;
+      import ./combinators
+      |> map (combinator:
+        import combinator (
+          args
+          // {
+            inherit builtinCombinators;
+            inherit (bin) combinators;
+          }
+        ))
+      |> mergeAttrsList;
 
     basePermissions = combinators:
       with combinators; [

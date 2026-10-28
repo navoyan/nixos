@@ -62,21 +62,6 @@
         "type": "github"
       }
     },
-    "import-tree": {
-      "locked": {
-        "lastModified": 1788467110,
-        "narHash": "sha256-ljEMTXP/rH0tOvDzc9gzwww6KcHRPRnEHzd9lK48V7s=",
-        "owner": "denful",
-        "repo": "import-tree",
-        "rev": "eb1b52eaecc57f7c136d07ae8a93e724dfecac46",
-        "type": "github"
-      },
-      "original": {
-        "owner": "denful",
-        "repo": "import-tree",
-        "type": "github"
-      }
-    },
     "jail-nix": {
       "locked": {
         "lastModified": 1788928033,
@@ -149,7 +134,6 @@
       "inputs": {
         "apple-emoji-nix": "apple-emoji-nix",
         "hjem": "hjem",
-        "import-tree": "import-tree",
         "jail-nix": "jail-nix",
         "nixpkgs": "nixpkgs",
         "nixpkgs-qt6-10": "nixpkgs-qt6-10",

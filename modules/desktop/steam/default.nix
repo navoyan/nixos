@@ -3,9 +3,12 @@
   config,
   pkgs,
   lib,
-  system,
   ...
 }: let
+  system = pkgs.stdenv.hostPlatform.system;
+
+  slsSteam = inputs.sls-steam.packages.${system}.sls-steam;
+
   linuwuxVersion = "26.09.28.4";
   linuwuxSo = pkgs.fetchurl {
     url = "https://github.com/brcly/linuwux-runtime/releases/download/v${linuwuxVersion}/LinUwUx.so";
@@ -17,6 +20,12 @@
     exec "$@"
   '';
 in {
+  imports = [
+    ./scripts
+
+    ./gaming-dev-tmpfs.nix
+  ];
+
   environment.systemPackages = with pkgs; [
     goverlay
     protonplus
@@ -25,14 +34,12 @@ in {
   programs.steam = {
     enable = true;
     remotePlay.openFirewall = true;
-    package = pkgs.steam.override (let
-      slsSteam = inputs.sls-steam.packages.${system}.sls-steam;
-    in {
+    package = pkgs.steam.override {
       extraEnv = {
         LD_AUDIT = "${slsSteam}/library-inject.so:${slsSteam}/SLSsteam.so";
         PROTON_USE_NTSYNC = "1";
       };
-    });
+    };
     extraPackages = with pkgs; [
       adwaita-icon-theme
       (lib.hiPrio (

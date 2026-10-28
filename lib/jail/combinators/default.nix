@@ -1,0 +1,12 @@
+[
+  ./fake-machine-id.nix
+  ./gtk.nix
+  ./gui.nix
+  ./qt.nix
+  ./secrets.nix
+  ./tray.nix
+  ./unsafe-dev-bind.nix
+  ./unsafe-dev.nix
+  ./xdg-desktop-portal.nix
+  ./xdg-open.nix
+]

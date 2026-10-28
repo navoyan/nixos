@@ -13,7 +13,6 @@
       url = "github:feel-co/hjem";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    import-tree.url = "github:denful/import-tree";
     jail-nix.url = "sourcehut:~alexdavid/jail.nix";
 
     spicetify-nix = {
@@ -29,40 +28,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
-  outputs = {
-    self,
-    nixpkgs,
-    nixpkgs-qt6-10,
-    jail-nix,
-    import-tree,
-    ...
-  } @ inputs: let
-    system = "x86_64-linux";
-
-    pkgsQt610 = import inputs.nixpkgs-qt6-10 {
-      inherit system;
-      overlays = [
-        inputs.nur.repos.ilya-fedin.overlays.qt6ct
-      ];
-    };
-
-    localLib = import ./lib {
-      inherit jail-nix import-tree;
-      inherit (nixosSystem) pkgs lib config;
-    };
-
-    nixosSystem = nixpkgs.lib.nixosSystem {
-      inherit system;
-      specialArgs = {
-        inherit system inputs pkgsQt610 localLib;
-        user = "narek";
-      };
-      modules = [
-        (import-tree ./modules)
-        (import-tree ./hosts/desktop)
-      ];
-    };
-  in {
-    nixosConfigurations.nixos-desktop = nixosSystem;
+  outputs = inputs: {
+    nixosConfigurations = import ./hosts inputs;
   };
 }

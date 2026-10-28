@@ -1,4 +1,23 @@
 {pkgs, ...}: {
+  imports = [
+    ./bat
+    ./direnv
+    ./fish
+    ./git
+    ./k9s
+    ./lazygit
+    ./less
+    ./npage
+    ./nvim
+    ./scripts
+    ./wiremix
+    ./yazi
+
+    ./claude.nix
+    ./fzf.nix
+    ./zoxide.nix
+  ];
+
   environment.systemPackages = with pkgs; [
     btop
     libqalculate
