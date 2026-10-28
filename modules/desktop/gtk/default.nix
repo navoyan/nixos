@@ -3,5 +3,5 @@
     GTK_THEME = "TokyoNight";
   };
 
-  my.outOfStoreSymlinks.data.themes = "theming/gtk/themes";
+  my.outOfStoreSymlinks.data.themes = "desktop/gtk/themes";
 }

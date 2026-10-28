@@ -19,7 +19,7 @@
   };
 
   my.outOfStoreSymlinks = let
-    base = "theming/qt";
+    base = "desktop/qt";
   in {
     config.qt6ct = "${base}/qt6ct";
     config.klassy = "${base}/klassy";
