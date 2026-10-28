@@ -9,14 +9,29 @@
     fastfetch
     fd
     gettext
-    hydra-check
     jq
     libnotify
     moreutils
-    nix-index
     rbw
     ripgrep
     tealdeer
     tokei
+    xh
+
+    python3
+    rust-script
+    rustup
+
+    bind
+    inetutils
+
+    hydra-check
+    nix-index
+
+    gcc
+    gdb
+
+    prek
+    shellcheck
   ];
 }

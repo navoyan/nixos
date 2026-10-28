@@ -13,6 +13,8 @@
     libreoffice
     obs-studio
 
+    gammaray
+    gparted
     iloader
   ];
 }

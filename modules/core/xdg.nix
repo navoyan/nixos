@@ -1,8 +1,4 @@
-{config, ...}: {
-  hj.files = {
-    ".bash_profile".source = config.hj.environment.loadEnv;
-  };
-
+{
   hj.environment.sessionVariables = rec {
     XDG_CONFIG_HOME = "$HOME/.config";
     XDG_CACHE_HOME = "$HOME/.cache";

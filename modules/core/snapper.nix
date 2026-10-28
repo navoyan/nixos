@@ -1,18 +1,11 @@
 {
-  inputs,
-  lib,
+  pkgs,
   user,
-  config,
   ...
 }: {
-  imports = [
-    inputs.hjem.nixosModules.default
-    (lib.mkAliasOptionModule ["hj"] ["hjem" "users" user])
+  environment.systemPackages = with pkgs; [
+    snapper
   ];
-
-  hj.directory = "/home/${user}";
-
-  programs.nh.flake = "${config.hj.directory}/nixos";
 
   services.snapper.configs = {
     home = {

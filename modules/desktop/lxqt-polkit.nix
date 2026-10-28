@@ -3,14 +3,6 @@
   lib,
   ...
 }: {
-  security.polkit = {
-    enable = true;
-    enablePkexecWrapper = true;
-  };
-  security.sudo-rs.enable = true;
-
-  programs.gnupg.agent.enable = true;
-
   systemd.user.services.lxqt-polkit = {
     wantedBy = ["graphical-session.target"];
     wants = ["graphical-session.target"];
@@ -29,11 +21,4 @@
       TimeoutStopSec = 10;
     };
   };
-
-  environment.systemPackages = with pkgs; [
-    lxqt.lxqt-policykit
-
-    snapper
-    btrfs-assistant
-  ];
 }
