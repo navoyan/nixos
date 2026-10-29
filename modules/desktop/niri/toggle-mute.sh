@@ -11,4 +11,6 @@ else
     sound="$unmute_sound"
 fi
 
-pw-play --volume 0.35 "$sound"
+# node.virtual=true streams are excluded from vesktop audio capture,
+# when "Ignore Virtual" setting is on:
+pw-play --properties '{ node.virtual=true }' --volume 0.35 "$sound"
