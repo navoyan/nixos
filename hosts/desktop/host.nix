@@ -1,5 +1,5 @@
-{nixosModules, ...}: {
-  imports = with nixosModules; [
+{modulePresets, ...}: {
+  imports = with modulePresets; [
     hardware.amdgpu
     hardware.bluetooth
     hardware.airpods

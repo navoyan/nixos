@@ -3,14 +3,19 @@
   jail-nix,
   ...
 } @ inputs: let
-  importRootModule = rootMod: import ../modules/${rootMod}/_meta.nix;
-  nixosModules = {
-    core = importRootModule "core";
-    extensions = importRootModule "extensions";
-    hardware = importRootModule "hardware";
-    cli = importRootModule "cli";
-    desktop = importRootModule "desktop";
-  };
+  inherit
+    (builtins)
+    mapAttrs
+    readDir
+    ;
+
+  modulePresets =
+    readDir ../modules
+    |> mapAttrs (
+      name: _:
+        import ../modules/${name}/_presets.nix
+        |> mapAttrs (_: imports: {inherit imports;})
+    );
 
   mkHost = hostName: {
     directory,
@@ -33,7 +38,7 @@
         inherit
           inputs
           pkgsQt610
-          nixosModules
+          modulePresets
           localLib
           ;
         user = "narek";
@@ -43,15 +48,15 @@
           networking.hostName = hostName;
           nixpkgs.hostPlatform = system;
         }
-        nixosModules.core.default
-        nixosModules.extensions.default
+        modulePresets.core.default
+        modulePresets.extensions.default
         ./${directory}/host.nix
       ];
     };
   in
     nixosSystem;
 in
-  builtins.mapAttrs mkHost {
+  mapAttrs mkHost {
     nixos-desktop = {
       directory = "desktop";
       system = "x86_64-linux";

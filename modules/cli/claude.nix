@@ -37,7 +37,12 @@
 
         # workflow:
         (fwd-env "EDITOR")
-        (add-pkg-deps [pkgs.git pkgs.delta pkgs.neovim])
+        (add-pkg-deps [
+          pkgs.git
+          pkgs.delta
+          pkgs.curl
+          pkgs.neovim
+        ])
         (readonly (noescape "~/.config/git"))
         (readonly (noescape "~/.config/nvim"))
         (readonly (noescape "~/.local/share/nvim"))

@@ -1,0 +1,37 @@
+{
+  default = [
+    ./chromium
+    ./discord
+    ./gtk
+    ./imv
+    ./kitty
+    ./mpv
+    ./niri
+    ./pipewire
+    ./qt
+    ./qutebrowser
+    ./rofi
+    ./rofi-rbw
+    ./scripts
+    ./spotify
+    ./steam
+    ./swaync
+    ./waybar
+    ./xdg-desktop-portal
+    ./xkb
+    ./yt-dlp
+    ./zathura
+
+    ./dconf.nix
+    ./default.nix
+    ./fonts.nix
+    ./icons.nix
+    ./lxqt-polkit.nix
+    ./ly.nix
+    ./mongodb-compass.nix
+    ./pinentry.nix
+    ./qbittorrent.nix
+    ./telegram.nix
+    ./xdg-open.nix
+  ];
+}

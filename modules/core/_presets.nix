@@ -1,5 +1,5 @@
 {
-  imports = [
+  default = [
     ./virtualisation
 
     ./compatibility.nix

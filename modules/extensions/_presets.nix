@@ -1,5 +1,5 @@
 {
-  imports = [
+  default = [
     ./jails.nix
     ./symlinks.nix
   ];
