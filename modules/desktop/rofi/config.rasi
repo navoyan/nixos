@@ -3,6 +3,10 @@
 configuration {
     modes: "drun,calc,clip:~/.config/rofi/modes/clip.sh,power:~/.config/rofi/modes/power.sh";
 
+    run-command: "uwsm-app -- {cmd}";
+    run-shell-command: "uwsm-app -- {terminal} -e {cmd}";
+    drun-url-launcher: "uwsm-app -- xdg-open";
+
     drun-display-format: "{name}";
     drun-match-fields: "name";
 
