@@ -10,7 +10,6 @@
     ./npage
     ./nvim
     ./scripts
-    ./wiremix
     ./yazi
 
     ./default.nix

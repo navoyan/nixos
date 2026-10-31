@@ -19,6 +19,7 @@
     ./spotify
     ./swaync
     ./waybar
+    ./wiremix
     ./xdg-desktop-portal
     ./xkb
     ./yt-dlp
