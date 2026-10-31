@@ -21,14 +21,7 @@
   '';
 in {
   imports = [
-    ./scripts
-
-    ./gaming-dev-tmpfs.nix
-  ];
-
-  environment.systemPackages = with pkgs; [
-    goverlay
-    protonplus
+    ./dev-tmpfs.nix
   ];
 
   programs.steam = {
@@ -52,12 +45,6 @@ in {
       mangohud
       linuwux
     ];
-  };
-
-  services.sunshine = {
-    enable = true;
-    openFirewall = true;
-    autoStart = false;
   };
 
   my.jails.steam = {

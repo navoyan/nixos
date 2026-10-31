@@ -47,7 +47,7 @@
     },
     // Numbers Style workspace
     "niri/workspaces#numbers": {
-        "all-outputs": true,
+        "all-outputs": false,
         "show-special": false,
         "on-click": "activate",
         "on-scroll-up": "niri msg action focus-workspace-up",

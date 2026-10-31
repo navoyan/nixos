@@ -63,6 +63,12 @@ output "DP-1" {
     position x=0 y=0
 }
 
+output "HDMI-A-1" {
+    off
+    mode "2560x1440@60"
+    position x=3840 y=0
+}
+
 cursor {
     xcursor-theme "Adwaita"
     xcursor-size 24

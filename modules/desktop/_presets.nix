@@ -1,4 +1,7 @@
 {
+  gaming = [
+    ./gaming
+  ];
   default = [
     ./chromium
     ./discord
@@ -14,7 +17,6 @@
     ./rofi-rbw
     ./scripts
     ./spotify
-    ./steam
     ./swaync
     ./waybar
     ./xdg-desktop-portal

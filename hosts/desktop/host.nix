@@ -6,6 +6,7 @@
     hardware.voyager
     cli.default
     desktop.default
+    desktop.gaming
 
     ./scan.nix
     ./filesystems.nix
