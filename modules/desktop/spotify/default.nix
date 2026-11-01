@@ -23,8 +23,8 @@
           own = ["org.mpris.MediaPlayer2.spotify"];
         })
 
-        (readwrite (noescape "~/.cache/spotify"))
-        (readwrite (noescape "~/.config/spotify"))
+        (mkdir-readwrite (noescape "~/.cache/spotify"))
+        (mkdir-readwrite (noescape "~/.config/spotify"))
       ];
   };
 

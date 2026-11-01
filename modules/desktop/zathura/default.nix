@@ -12,10 +12,10 @@
         xdg-open
 
         (readwrite (noescape "~/.config/zathura"))
-        (readwrite (noescape "~/.local/share/zathura"))
+        (mkdir-readwrite (noescape "~/.local/share/zathura"))
 
-        (readonly (noescape "~/Downloads"))
-        (readonly (noescape "~/Documents"))
+        (mkdir-readonly (noescape "~/Downloads"))
+        (mkdir-readonly (noescape "~/Documents"))
       ];
   };
 

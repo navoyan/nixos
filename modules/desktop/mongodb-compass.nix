@@ -14,11 +14,11 @@
           ${entry} --ignore-additional-command-line-flags --password-store="gnome-libsecret"
         ''))
 
-        (readwrite (noescape "~/.config/'MongoDB Compass'"))
-        (rw-bind (noescape "~/.local/state/mongodb-compass") (noescape "~/.mongodb/compass"))
+        (mkdir-readwrite (noescape "~/.config/'MongoDB Compass'"))
+        (mkdir-rw-bind (noescape "~/.local/state/mongodb-compass") (noescape "~/.mongodb/compass"))
 
-        (readonly (noescape "~/Downloads"))
-        (readonly (noescape "~/projects"))
+        (mkdir-readonly (noescape "~/Downloads"))
+        (mkdir-readonly (noescape "~/projects"))
       ];
   };
 }

@@ -12,10 +12,10 @@
         xdg-desktop-portal
         tray
 
-        (readwrite (noescape "~/.local/share/TelegramDesktop"))
+        (mkdir-readwrite (noescape "~/.local/share/TelegramDesktop"))
 
-        (readonly (noescape "~/Downloads"))
-        (readonly (noescape "~/Pictures"))
+        (mkdir-readonly (noescape "~/Downloads"))
+        (mkdir-readonly (noescape "~/Pictures"))
       ];
   };
 }

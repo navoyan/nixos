@@ -11,13 +11,13 @@
         xdg-desktop-portal
         tray
 
-        (readwrite (noescape "~/.config/qBittorrent"))
-        (readwrite (noescape "~/.local/share/qBittorrent"))
+        (mkdir-readwrite (noescape "~/.config/qBittorrent"))
+        (mkdir-readwrite (noescape "~/.local/share/qBittorrent"))
 
-        (readwrite (noescape "~/Downloads"))
-        (readwrite (noescape "~/Data/Videos"))
-        (readwrite (noescape "~/Data/Games"))
-        (readwrite (noescape "~/Games"))
+        (mkdir-readwrite (noescape "~/Downloads"))
+        (mkdir-readwrite (noescape "~/Data/Videos"))
+        (mkdir-readwrite (noescape "~/Data/Games"))
+        (mkdir-readwrite (noescape "~/Games"))
       ];
   };
 }

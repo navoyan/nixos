@@ -74,13 +74,13 @@ in {
           ];
         })
 
-        (readwrite (noescape "~/.config/qutebrowser"))
-        (readwrite (noescape "~/.cache/qutebrowser"))
-        (readwrite (noescape "~/.local/share/qutebrowser"))
+        (mkdir-readwrite (noescape "~/.config/qutebrowser"))
+        (mkdir-readwrite (noescape "~/.cache/qutebrowser"))
+        (mkdir-readwrite (noescape "~/.local/share/qutebrowser"))
 
-        (readwrite (noescape "~/Downloads"))
-        (readwrite (noescape "~/Documents"))
-        (readwrite (noescape "~/Pictures"))
+        (mkdir-readwrite (noescape "~/Downloads"))
+        (mkdir-readwrite (noescape "~/Documents"))
+        (mkdir-readwrite (noescape "~/Pictures"))
 
         ## integrations:
 
@@ -97,19 +97,19 @@ in {
         # kitty:
         (add-pkg-deps [pkgs.kitty])
         (readonly (noescape "~/.config/kitty"))
-        (readwrite (noescape "~/.cache/kitty"))
+        (mkdir-readwrite (noescape "~/.cache/kitty"))
 
         # nvim:
         (add-pkg-deps [pkgs.neovim pkgs.git])
         (readonly (noescape "~/.config/nvim"))
-        (readwrite (noescape "~/.cache/nvim"))
-        (readonly (noescape "~/.local/share/nvim"))
-        (readonly (noescape "~/vaults"))
+        (mkdir-readwrite (noescape "~/.cache/nvim"))
+        (mkdir-readonly (noescape "~/.local/share/nvim"))
+        (mkdir-readonly (noescape "~/vaults"))
 
         # yazi:
         (add-pkg-deps [pkgs.yazi])
         (readonly (noescape "~/.config/yazi"))
-        (readwrite (noescape "~/.cache/yazi"))
+        (mkdir-readwrite (noescape "~/.cache/yazi"))
       ];
   };
 

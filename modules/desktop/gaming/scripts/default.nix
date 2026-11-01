@@ -23,11 +23,11 @@
       network
 
       # manifests:
-      (readwrite (noescape "~/.local/share/steam-manifests"))
+      (mkdir-readwrite (noescape "~/.local/share/steam-manifests"))
 
       # Steam apps:
-      (readwrite (noescape "~/.local/share/Steam/steamapps/common"))
-      (readwrite (noescape "~/Data/Steam/steamapps/common"))
+      (mkdir-readwrite (noescape "~/.local/share/Steam/steamapps/common"))
+      (mkdir-readwrite (noescape "~/Data/Steam/steamapps/common"))
     ]);
 
   depotdl = pkgs.writeShellApplication {

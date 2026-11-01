@@ -25,12 +25,12 @@
         (readonly "/sys/class/input")
         (readonly "/sys/devices")
 
-        (readwrite (noescape "~/.config/chromium"))
-        (readwrite (noescape "~/.cache/chromium"))
+        (mkdir-readwrite (noescape "~/.config/chromium"))
+        (mkdir-readwrite (noescape "~/.cache/chromium"))
 
-        (readwrite (noescape "~/Downloads"))
-        (readwrite (noescape "~/Documents"))
-        (readwrite (noescape "~/Pictures"))
+        (mkdir-readwrite (noescape "~/Downloads"))
+        (mkdir-readwrite (noescape "~/Documents"))
+        (mkdir-readwrite (noescape "~/Pictures"))
       ];
   };
 

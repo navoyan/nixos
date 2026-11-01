@@ -20,20 +20,20 @@
           direnv exec . ${entry}
         ''))
         (readonly (noescape "~/.config/direnv"))
-        (readonly (noescape "~/.local/share/direnv"))
+        (mkdir-readonly (noescape "~/.local/share/direnv"))
 
         # claude/mcp:
         (add-pkg-deps [pkgs.claude-code pkgs.codegraph])
         (set-env "CLAUDE_CONFIG_DIR" (noescape "~/.config/claude"))
-        (readwrite (noescape "~/.config/claude"))
-        (readwrite (noescape "~/.config/anthropic"))
-        (rw-bind (noescape "~/.local/share/codegraph") (noescape "~/.codegraph"))
+        (mkdir-readwrite (noescape "~/.config/claude"))
+        (mkdir-readwrite (noescape "~/.config/anthropic"))
+        (mkdir-rw-bind (noescape "~/.local/share/codegraph") (noescape "~/.codegraph"))
 
         # projects:
         mount-cwd
-        (readwrite (noescape "~/projects"))
+        (mkdir-readwrite (noescape "~/projects"))
         (readwrite (noescape "~/nixos"))
-        (readwrite (noescape "~/vaults"))
+        (mkdir-readwrite (noescape "~/vaults"))
 
         ## workflow
 
@@ -43,8 +43,8 @@
         (fwd-env "EDITOR")
         (add-pkg-deps [pkgs.neovim])
         (readonly (noescape "~/.config/nvim"))
-        (readonly (noescape "~/.local/share/nvim"))
-        (readwrite (noescape "~/.local/state/nvim"))
+        (mkdir-readonly (noescape "~/.local/share/nvim"))
+        (mkdir-readwrite (noescape "~/.local/state/nvim"))
 
         ## tools
 
@@ -59,11 +59,11 @@
 
         (fwd-env "RUSTUP_HOME")
         (fwd-env "CARGO_HOME")
-        (readwrite (noescape "~/.local/share/rustup"))
-        (readwrite (noescape "~/.local/share/cargo"))
+        (mkdir-readwrite (noescape "~/.local/share/rustup"))
+        (mkdir-readwrite (noescape "~/.local/share/cargo"))
 
-        (readwrite (noescape "~/.cache/uv"))
-        (readwrite (noescape "~/.local/share/uv"))
+        (mkdir-readwrite (noescape "~/.cache/uv"))
+        (mkdir-readwrite (noescape "~/.local/share/uv"))
       ];
   };
 }

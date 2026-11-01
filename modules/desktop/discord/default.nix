@@ -18,10 +18,10 @@
           own = ["org.freedesktop.*"];
         })
 
-        (readwrite (noescape "~/.config/vesktop"))
+        (mkdir-readwrite (noescape "~/.config/vesktop"))
 
-        (readonly (noescape "~/Downloads"))
-        (readonly (noescape "~/Pictures"))
+        (mkdir-readonly (noescape "~/Downloads"))
+        (mkdir-readonly (noescape "~/Pictures"))
       ];
   };
 

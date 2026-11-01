@@ -72,27 +72,27 @@
       # detect-lang script:
       (add-pkg-deps [detectLang])
       (fwd-env "CARGO_HOME")
-      (readwrite (noescape "~/.local/share/cargo"))
-      (readwrite (noescape "~/.cache/rust-script"))
+      (mkdir-readwrite (noescape "~/.local/share/cargo"))
+      (mkdir-readwrite (noescape "~/.cache/rust-script"))
 
       # mpv dirs:
       (readonly (noescape "~/.config/mpv"))
-      (readwrite (noescape "~/.cache/mpv"))
-      (readwrite (noescape "~/.local/state/mpv"))
+      (mkdir-readwrite (noescape "~/.cache/mpv"))
+      (mkdir-readwrite (noescape "~/.local/state/mpv"))
 
       # yt-dlp dirs:
       (readonly (noescape "~/.config/yt-dlp"))
-      (readwrite (noescape "~/.cache/yt-dlp"))
+      (mkdir-readwrite (noescape "~/.cache/yt-dlp"))
       # browser cookies:
-      (readwrite (noescape "~/.local/share/qutebrowser"))
+      (mkdir-readwrite (noescape "~/.local/share/qutebrowser"))
 
       # media dirs:
-      (readonly (noescape "~/Downloads"))
-      (readonly (noescape "~/Data/Videos"))
-      (readonly (noescape "~/Games"))
+      (mkdir-readonly (noescape "~/Downloads"))
+      (mkdir-readonly (noescape "~/Data/Videos"))
+      (mkdir-readonly (noescape "~/Games"))
 
       # screenshots:
-      (readwrite (noescape "~/Pictures/'MPV Screenshots'"))
+      (mkdir-readwrite (noescape "~/Pictures/'MPV Screenshots'"))
     ];
 
   permissionsWithNetwork = combinators: (permissions combinators) ++ [combinators.network];

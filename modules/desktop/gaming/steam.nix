@@ -95,13 +95,13 @@ in {
         # for hardware survey:
         (readonly "/etc/os-release")
 
-        (readwrite (noescape "~/.local/share/Steam"))
-        (readwrite (noescape "~/Data/Steam"))
-        (readwrite (noescape "~/Games"))
-        (readwrite (noescape "~/Data/Games"))
+        (mkdir-readwrite (noescape "~/.local/share/Steam"))
+        (mkdir-readwrite (noescape "~/Data/Steam"))
+        (mkdir-readwrite (noescape "~/Games"))
+        (mkdir-readwrite (noescape "~/Data/Games"))
 
         # SLSsteam:
-        (readwrite (noescape "~/.config/SLSsteam"))
+        (mkdir-readwrite (noescape "~/.config/SLSsteam"))
 
         # mangohud:
         (readonly (noescape "~/.config/MangoHud/MangoHud.conf"))

@@ -9,9 +9,9 @@
 
         (readonly (noescape "~/.config/imv"))
 
-        (readonly (noescape "~/Downloads"))
-        (readonly (noescape "~/Pictures"))
-        (readonly (noescape "~/Documents"))
+        (mkdir-readonly (noescape "~/Downloads"))
+        (mkdir-readonly (noescape "~/Pictures"))
+        (mkdir-readonly (noescape "~/Documents"))
       ];
   };
 

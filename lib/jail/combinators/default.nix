@@ -3,7 +3,11 @@
   ./gtk.nix
   ./gui.nix
   ./qt.nix
+  ./mkdir-readonly.nix
+  ./mkdir-readwrite.nix
+  ./mkdir-ro-bind.nix
   ./ro-bind-symlink-and-target.nix
+  ./mkdir-rw-bind.nix
   ./secrets.nix
   ./tray.nix
   ./unsafe-dev-bind.nix
