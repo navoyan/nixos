@@ -13,7 +13,7 @@ max_line_length = 120
 [*.nix]
 indent_size = 2
 
-[{**.sh,modules/scripts/**}]
+[*.sh]
 binary_next_line   = true
 switch_case_indent = true
 space_redirects    = true
