@@ -15,7 +15,7 @@
     DOCKER_CONFIG = "${XDG_CONFIG_HOME}/docker";
     HISTFILE = "${XDG_STATE_HOME}/bash/history";
     KUBECACHEDIR = "${XDG_CACHE_HOME}/kube";
-    KUBECONFIG = "${XDG_CONFIG_HOME}/kube/config";
+    KUBECONFIG = "${XDG_CONFIG_HOME}/kube/config.yaml";
     MINIKUBE_HOME = "${XDG_DATA_HOME}/minikube";
     NPM_CONFIG_CACHE = "${XDG_CACHE_HOME}/npm";
     NPM_CONFIG_INIT_MODULE = "${XDG_CONFIG_HOME}/npm/config/npm-init.js";

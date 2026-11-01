@@ -14,7 +14,7 @@
         (readonly "/etc/nix/nix.conf")
         (ro-bind "${pkgs.nix-ld}/libexec/nix-ld" "/lib64/ld-linux-x86-64.so.2")
 
-        # direnv
+        # direnv:
         (add-pkg-deps [pkgs.direnv])
         (wrap-entry (entry: ''
           direnv exec . ${entry}
@@ -35,26 +35,33 @@
         (readwrite (noescape "~/nixos"))
         (readwrite (noescape "~/vaults"))
 
-        # workflow:
-        (fwd-env "EDITOR")
-        (add-pkg-deps [
-          pkgs.git
-          pkgs.delta
-          pkgs.curl
-          pkgs.neovim
-        ])
+        ## workflow
+
+        (add-pkg-deps [pkgs.git pkgs.delta])
         (readonly (noescape "~/.config/git"))
+
+        (fwd-env "EDITOR")
+        (add-pkg-deps [pkgs.neovim])
         (readonly (noescape "~/.config/nvim"))
         (readonly (noescape "~/.local/share/nvim"))
         (readwrite (noescape "~/.local/state/nvim"))
 
-        # rust:
+        ## tools
+
+        (add-pkg-deps (with pkgs; [
+          curl
+        ]))
+
+        (add-pkg-deps [pkgs.kubectl])
+        (set-env "KUBECONFIG" (noescape "~/.config/kube/claude.yaml"))
+        (readonly (noescape "~/.config/kube/claude.yaml"))
+        (fwd-env "KUBECACHEDIR")
+
         (fwd-env "RUSTUP_HOME")
         (fwd-env "CARGO_HOME")
         (readwrite (noescape "~/.local/share/rustup"))
         (readwrite (noescape "~/.local/share/cargo"))
 
-        # python:
         (readwrite (noescape "~/.cache/uv"))
         (readwrite (noescape "~/.local/share/uv"))
       ];
