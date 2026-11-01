@@ -5,11 +5,6 @@
     XDG_DATA_HOME = "$HOME/.local/share";
     XDG_STATE_HOME = "$HOME/.local/state";
 
-    NIXOS_OZONE_WL = "1";
-
-    AWWW_TRANSITION = "any";
-    AWWW_TRANSITION_FPS = "180";
-
     # force xdg base directory specification:
     CARGO_HOME = "${XDG_DATA_HOME}/cargo";
     DOCKER_CONFIG = "${XDG_CONFIG_HOME}/docker";

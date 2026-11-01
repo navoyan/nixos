@@ -1,10 +1,9 @@
 {
-  config,
   pkgs,
   localLib,
   ...
 }: let
-  scriptsDir = "${config.programs.nh.flake}/modules/programs/steam/scripts";
+  scriptsDir = "~/nixos/modules/programs/steam/scripts";
 
   depotDownloaderMod = pkgs.depotdownloader.overrideAttrs (old: {
     version = "unstable-2026-10-09";
@@ -45,7 +44,7 @@
       depotDownloaderModJailed
     ];
     text = ''
-      exec "${scriptsDir}/depotdl.sh" "$@"
+      exec ${scriptsDir}/depotdl.sh "$@"
     '';
   };
 
@@ -56,7 +55,7 @@
       mangohud
     ];
     text = ''
-      exec "${scriptsDir}/scoperun.sh" "$@"
+      exec ${scriptsDir}/scoperun.sh "$@"
     '';
   };
 
@@ -67,7 +66,7 @@
       mangohud
     ];
     text = ''
-      exec "${scriptsDir}/wlrun.sh" "$@"
+      exec ${scriptsDir}/wlrun.sh "$@"
     '';
   };
 in {

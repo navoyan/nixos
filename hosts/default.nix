@@ -41,7 +41,6 @@
           modulePresets
           localLib
           ;
-        user = "narek";
       };
       modules = [
         {

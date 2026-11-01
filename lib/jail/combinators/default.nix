@@ -3,6 +3,7 @@
   ./gtk.nix
   ./gui.nix
   ./qt.nix
+  ./ro-bind-symlink-and-target.nix
   ./secrets.nix
   ./tray.nix
   ./unsafe-dev-bind.nix

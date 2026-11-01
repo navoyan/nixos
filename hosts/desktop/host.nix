@@ -12,7 +12,7 @@
     ./filesystems.nix
     ./boot.nix
     ./networking.nix
-    ./user.nix
+    ./users.nix
   ];
 
   services.usbmuxd.enable = true;

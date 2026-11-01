@@ -1,9 +1,5 @@
-{
-  config,
-  pkgs,
-  ...
-}: let
-  scriptsDir = "${config.programs.nh.flake}/modules/desktop/scripts";
+{pkgs, ...}: let
+  scriptsDir = "~/nixos/modules/desktop/scripts";
 
   awwwReset = pkgs.writeShellApplication {
     name = "awww-reset";
@@ -13,7 +9,7 @@
       awww
     ];
     text = ''
-      exec "${scriptsDir}/awww-reset.sh" "$@"
+      exec ${scriptsDir}/awww-reset.sh "$@"
     '';
   };
 
@@ -31,7 +27,7 @@
       awww
     ];
     text = ''
-      exec "${scriptsDir}/pickwall.sh" "$@"
+      exec ${scriptsDir}/pickwall.sh "$@"
     '';
   };
 in {
@@ -39,4 +35,9 @@ in {
     awwwReset
     pickwall
   ];
+
+  hj.environment.sessionVariables = {
+    AWWW_TRANSITION = "any";
+    AWWW_TRANSITION_FPS = "180";
+  };
 }

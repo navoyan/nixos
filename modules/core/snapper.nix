@@ -1,16 +1,16 @@
-{
-  pkgs,
-  user,
-  ...
-}: {
-  environment.systemPackages = with pkgs; [
-    snapper
+{pkgs, ...}: {
+  environment.systemPackages = [
+    pkgs.snapper
   ];
+
+  users.groups = {
+    snapper = {};
+  };
 
   services.snapper.configs = {
     home = {
       SUBVOLUME = "/home";
-      ALLOW_USERS = [user];
+      ALLOW_GROUPS = ["snapper"];
       TIMELINE_CREATE = true;
       TIMELINE_CLEANUP = true;
       TIMELINE_LIMIT_HOURLY = 10;

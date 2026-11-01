@@ -9,7 +9,6 @@
     ./less
     ./npage
     ./nvim
-    ./scripts
     ./yazi
 
     ./default.nix

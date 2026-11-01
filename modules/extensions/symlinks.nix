@@ -1,6 +1,6 @@
 {
-  config,
   lib,
+  config,
   ...
 }: let
   inherit
@@ -11,9 +11,6 @@
     types
     ;
 
-  cfg = config.my.outOfStoreSymlinks;
-
-  symlinkSourceBase = "${config.programs.nh.flake}/modules";
   xdgDirs = ["config" "data" "cache" "state"];
 
   baseRelType = types.submodule {
@@ -26,6 +23,8 @@
       };
     };
   };
+
+  cfg = config.my.outOfStoreSymlinks;
 in {
   options = {
     my.outOfStoreSymlinks = genAttrs xdgDirs (_:
@@ -40,8 +39,10 @@ in {
       });
   };
 
-  config = {
-    hj.xdg = genAttrs xdgDirs (xdgDir: {
+  config.hj = {config, ...}: let
+    symlinkSourceBase = "${config.directory}/nixos/modules";
+  in {
+    xdg = genAttrs xdgDirs (xdgDir: {
       files =
         cfg.${xdgDir}
         |> lib.concatMapAttrs (

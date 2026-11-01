@@ -44,9 +44,9 @@ in rec {
         (add-pkg-deps [pkgs.glibcLocales])
         (set-env "LOCALE_ARCHIVE" "${pkgs.glibcLocales}/lib/locale/locale-archive")
 
-        # configs:
+        # config:
         (set-hostname config.networking.hostName)
-        (defer (readonly config.programs.nh.flake))
+        (defer (readonly (noescape "~/nixos")))
       ];
   };
 

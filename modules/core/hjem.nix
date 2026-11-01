@@ -1,18 +1,39 @@
 {
   config,
-  inputs,
   lib,
-  user,
+  inputs,
   ...
-}: {
-  imports = [
-    inputs.hjem.nixosModules.default
-    (lib.mkAliasOptionModule ["hj"] ["hjem" "users" user])
-  ];
+}: let
+  inherit
+    (lib)
+    types
+    genAttrs
+    ;
+  inherit (lib.options) mkOption;
+in {
+  imports = [inputs.hjem.nixosModules.default];
 
-  hj.directory = "/home/${user}";
+  options = {
+    my.manageHomeForUsers = mkOption {
+      type = types.listOf types.str;
+    };
 
-  hj.files = {
-    ".bash_profile".source = config.hj.environment.loadEnv;
+    hj = mkOption {
+      type = types.deferredModule;
+      default = {};
+      description = "Module applied to every managed user's hjem config";
+    };
+  };
+
+  config = {
+    hjem.users = genAttrs config.my.manageHomeForUsers (user: {
+      user = user;
+      directory = "/home/${user}";
+      files = {
+        ".bash_profile".source = config.hjem.users.${user}.environment.loadEnv;
+      };
+    });
+
+    hjem.extraModules = [config.hj];
   };
 }

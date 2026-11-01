@@ -1,4 +1,4 @@
-{user, ...}: {
+{
   fileSystems = {
     "/boot" = {
       device = "/dev/disk/by-uuid/33FC-1E21";
@@ -37,7 +37,7 @@
       ];
     };
 
-    "/home/${user}/Data" = {
+    "/home/narek/Data" = {
       device = "/dev/disk/by-uuid/a7816e36-7f97-4b49-94cb-2b85066cd571";
       fsType = "btrfs";
       options = [

@@ -54,7 +54,7 @@
       rust-script
     ];
     text = ''
-      exec "${config.programs.nh.flake}/modules/programs/mpv/detect_lang.rs" "$@"
+      exec ~/nixos/modules/programs/mpv/detect_lang.rs "$@"
     '';
   };
 

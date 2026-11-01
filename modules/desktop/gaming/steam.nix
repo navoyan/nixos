@@ -108,7 +108,9 @@ in {
       ];
   };
 
-  hj.files = {
-    "Steam".source = "${config.hj.directory}/.local/share/Steam";
+  hj = {config, ...}: {
+    files = {
+      "Steam".source = "${config.directory}/.local/share/Steam";
+    };
   };
 }
