@@ -30,5 +30,6 @@
   };
   outputs = inputs: {
     nixosConfigurations = import ./hosts inputs;
+    overlays = import ./overlays inputs;
   };
 }

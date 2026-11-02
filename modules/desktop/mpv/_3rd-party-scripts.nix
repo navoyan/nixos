@@ -24,13 +24,4 @@ pkgs: {
       hash = "sha256-wDxfhPipWs6UlnjD8dXU9RxjQH9vSuK1LrOEtisyl3w=";
     };
   };
-
-  thumbfast = pkgs.mpvScripts.thumbfast.overrideAttrs {
-    src = pkgs.fetchFromGitHub {
-      owner = "N-R-K";
-      repo = "thumbfast";
-      rev = "edbc294010bb0d7b3fc5f929c70c6f9b44132654";
-      hash = "sha256-AQ28Nm+6SEELbFOa0PpCWWapcwwJ3G8ttB99QlGgeCs=";
-    };
-  };
 }

@@ -1,6 +1,7 @@
 {
   nixpkgs,
   jail-nix,
+  self,
   ...
 } @ inputs: let
   inherit
@@ -21,23 +22,21 @@
     directory,
     system,
   }: let
-    pkgsQt610 = import inputs.nixpkgs-qt6-10 {
-      inherit system;
-      overlays = [
-        inputs.nur.repos.ilya-fedin.overlays.qt6ct
-      ];
-    };
-
     localLib = import ../lib {
       inherit jail-nix;
-      inherit (nixosSystem) pkgs lib config;
+      inherit
+        (nixosSystem)
+        pkgs
+        lib
+        config
+        ;
     };
 
     nixosSystem = nixpkgs.lib.nixosSystem {
       specialArgs = {
+        flake = self;
         inherit
           inputs
-          pkgsQt610
           modulePresets
           localLib
           ;

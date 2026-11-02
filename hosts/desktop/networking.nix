@@ -1,6 +1,5 @@
 {pkgs, ...}: {
   networking = {
-    hostName = "nixos-desktop";
     wireless.enable = true;
     firewall.allowedTCPPorts = [8900 8901 8902];
   };
