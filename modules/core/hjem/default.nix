@@ -11,7 +11,10 @@
     ;
   inherit (lib.options) mkOption;
 in {
-  imports = [inputs.hjem.nixosModules.default];
+  imports = [
+    inputs.hjem.nixosModules.default
+    ./symlinks.nix
+  ];
 
   options = {
     my.manageHomeForUsers = mkOption {

@@ -47,7 +47,6 @@
           nixpkgs.hostPlatform = system;
         }
         modulePresets.core.default
-        modulePresets.extensions.default
         ./${directory}/host.nix
       ];
     };

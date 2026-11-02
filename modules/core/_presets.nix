@@ -1,10 +1,11 @@
 {
   default = [
     ./nh
+    ./hjem
     ./virtualisation
 
     ./compatibility.nix
-    ./hjem.nix
+    ./jails.nix
     ./locale.nix
     ./networking.nix
     ./nix.nix
