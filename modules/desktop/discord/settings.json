@@ -9,5 +9,8 @@
         "en",
         "ru"
     ],
-    "webRTCIPHandlingPolicy": "default_public_and_private_interfaces"
+    "webRTCIPHandlingPolicy": "default_public_and_private_interfaces",
+    "audio": {
+        "ignoreVirtual": true
+    }
 }

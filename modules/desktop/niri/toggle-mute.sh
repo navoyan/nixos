@@ -12,5 +12,5 @@ else
 fi
 
 # node.virtual=true streams are excluded from vesktop audio capture,
-# when "Ignore Virtual" setting is on:
+# when audio.ignoreVirtual==true
 pw-play --properties '{ node.virtual=true }' --volume 0.35 "$sound"
