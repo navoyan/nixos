@@ -45,6 +45,7 @@
         {
           networking.hostName = hostName;
           nixpkgs.hostPlatform = system;
+          nixpkgs.overlays = [self.overlays.default];
         }
         modulePresets.core.default
         ./${directory}/host.nix

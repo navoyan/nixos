@@ -3,7 +3,7 @@
   nixpkgs-qt6-10,
   nur,
   ...
-}: let
+} @ inputs: let
   inherit (nixpkgs) lib;
 
   mkOverlay = files: self: super: let
@@ -28,6 +28,8 @@
     |> lib.composeManyExtensions
     |> (composed: composed self super);
 in {
+  default = (import ../pkgs inputs).overlay;
+
   mpv = mkOverlay [
     ./mpv/overlay.nix
     ./mpv/thumbfast.nix

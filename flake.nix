@@ -32,5 +32,6 @@
   outputs = inputs: {
     nixosConfigurations = import ./hosts inputs;
     overlays = import ./overlays inputs;
+    packages = import ./pkgs inputs;
   };
 }

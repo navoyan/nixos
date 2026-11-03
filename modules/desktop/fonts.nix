@@ -1,17 +1,9 @@
-{
-  inputs,
-  pkgs,
-  ...
-}: {
-  nixpkgs.overlays = [
-    inputs.apple-emoji-nix.overlays.default
-  ];
-
+{pkgs, ...}: {
   fonts = {
     packages = with pkgs; [
       noto-fonts
       nerd-fonts.jetbrains-mono
-      apple-emoji-nix
+      apple-color-emoji
     ];
     fontconfig = {
       enable = true;

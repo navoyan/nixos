@@ -3,15 +3,13 @@
   flake,
   ...
 }: let
-  thirdPartyScripts = import ./_3rd-party-scripts.nix pkgs;
-
   overlay = flake.overlays.mpv;
   mpv = pkgs.mpv.override {
-    scripts = [
-      thirdPartyScripts.mfpbar
-      pkgs.mpvScripts.thumbfast
-      thirdPartyScripts.thumbyt
-      pkgs.mpvScripts.sponsorblock-minimal
+    scripts = with pkgs.mpvScripts; [
+      mfpbar
+      thumbfast
+      thumbyt
+      sponsorblock-minimal
     ];
   };
 
