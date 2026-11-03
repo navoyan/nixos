@@ -15,6 +15,7 @@
     };
     jail-nix.url = "sourcehut:~alexdavid/jail.nix";
 
+    nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";

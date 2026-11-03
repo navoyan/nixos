@@ -1,5 +1,9 @@
-{pkgs, ...}: let
-  linuxPackages = pkgs.linuxPackages_latest;
+{
+  inputs,
+  pkgs,
+  ...
+}: let
+  linuxPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto-zen4;
 
   it87 = linuxPackages.it87.overrideAttrs (old: rec {
     version = "unstable-2026-10-07";
@@ -12,6 +16,15 @@
     };
   });
 in {
+  nixpkgs.overlays = [
+    inputs.nix-cachyos-kernel.overlays.pinned
+  ];
+
+  nix.settings = {
+    substituters = ["https://cache.lantian.pub/lantian"];
+    trusted-public-keys = ["lantian:WVGO7vsRMSEN+h7Lp7kv6SAmrkEXgUGbbXm7jMDjBuQ="];
+  };
+
   boot.loader.limine.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
