@@ -24,10 +24,6 @@
       url = "github:AceSLS/SLSsteam";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    apple-emoji-nix = {
-      url = "github:oxcl/nix-flake-apple-emoji/ad1260acba5c30ab04ed9d3710d98d57a296d939";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
   outputs = inputs: {
     nixosConfigurations = import ./hosts inputs;

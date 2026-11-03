@@ -7,10 +7,12 @@ in {
       mfpbar = mself.callPackage ./mpv/mfpbar.nix {};
       thumbyt = mself.callPackage ./mpv/thumbyt.nix {};
     });
+    apple-color-emoji = self.callPackage ./apple-color-emoji.nix {};
   };
 
   packages.${system} = with pkgs; {
     mpv-mfpbar = mpvScripts.callPackage ./mpv/mfpbar.nix {};
     mpv-thumbyt = mpvScripts.callPackage ./mpv/thumbyt.nix {};
+    apple-color-emoji = callPackage ./apple-color-emoji.nix {};
   };
 }

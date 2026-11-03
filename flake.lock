@@ -1,26 +1,5 @@
 {
   "nodes": {
-    "apple-emoji-nix": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1778253333,
-        "narHash": "sha256-1eTf+1dB2ADwNyVXmYSh9/mEL7sXWzJN7FXXmJz/e7o=",
-        "owner": "oxcl",
-        "repo": "nix-flake-apple-emoji",
-        "rev": "ad1260acba5c30ab04ed9d3710d98d57a296d939",
-        "type": "github"
-      },
-      "original": {
-        "owner": "oxcl",
-        "repo": "nix-flake-apple-emoji",
-        "rev": "ad1260acba5c30ab04ed9d3710d98d57a296d939",
-        "type": "github"
-      }
-    },
     "flake-compat": {
       "flake": false,
       "locked": {
@@ -218,7 +197,6 @@
     },
     "root": {
       "inputs": {
-        "apple-emoji-nix": "apple-emoji-nix",
         "hjem": "hjem",
         "jail-nix": "jail-nix",
         "nix-cachyos-kernel": "nix-cachyos-kernel",
