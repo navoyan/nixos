@@ -1,6 +1,1 @@
-modules/cli/yazi/default/
-modules/desktop/mpv/default/
 
-modules/desktop/qt/qt6ct/default.conf
-modules/desktop/qutebrowser/default.py
-modules/desktop/rofi/default.rasi
