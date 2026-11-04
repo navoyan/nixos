@@ -1,8 +1,8 @@
 /*
 Light variant icons replaced with dark variants
 */
-{super, ...}: {
-  pinentry-qt = super.pinentry-qt.overrideAttrs (old: {
+{prev, ...}: {
+  pinentry-qt = prev.pinentry-qt.overrideAttrs (old: {
     postPatch =
       (old.postPatch or "")
       +

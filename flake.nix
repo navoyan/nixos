@@ -1,9 +1,10 @@
 {
   outputs = args: let
     inputs = args // import ./.tack;
+    output = file: import file inputs;
   in {
-    nixosConfigurations = import ./hosts inputs;
-    overlays = import ./overlays inputs;
-    packages = import ./pkgs inputs;
+    inherit (output ./hosts) nixosConfigurations;
+    inherit (output ./overlays) overlays;
+    inherit (output ./pkgs) packages;
   };
 }

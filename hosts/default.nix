@@ -53,10 +53,11 @@
     };
   in
     nixosSystem;
-in
-  mapAttrs mkHost {
+in {
+  nixosConfigurations = mapAttrs mkHost {
     nixos-desktop = {
       directory = "desktop";
       system = "x86_64-linux";
     };
-  }
+  };
+}

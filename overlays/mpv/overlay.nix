@@ -2,19 +2,19 @@
 Unreleased git version
 */
 {
-  self,
-  super,
+  final,
+  prev,
   ...
 }: {
-  mpv-unwrapped = super.mpv-unwrapped.overrideAttrs (old: {
+  mpv-unwrapped = prev.mpv-unwrapped.overrideAttrs (old: {
     version = "v0.41.0-UNKNOWN";
-    src = self.fetchFromGitHub {
+    src = final.fetchFromGitHub {
       owner = "mpv-player";
       repo = "mpv";
       rev = "654e9382c0bbccb09ccac348f792e9d378e9c7a9";
       hash = "sha256-2oPLH6ewbMp8Y/HK+Kpm5qVcvK2BO7C+XUmqI/wnRaI=";
     };
-    postPatch = self.lib.concatStringsSep "\n" [
+    postPatch = final.lib.concatStringsSep "\n" [
       # Don't reference compile time dependencies or create a build outputs cycle between out and dev
       # bash
       ''

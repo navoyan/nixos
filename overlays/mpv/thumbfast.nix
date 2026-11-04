@@ -2,13 +2,13 @@
 Support for mpv's preview api
 */
 {
-  self,
-  super,
+  final,
+  prev,
   ...
 }: {
-  mpvScripts = super.mpvScripts.overrideScope (mself: msuper: {
-    thumbfast = msuper.thumbfast.overrideAttrs {
-      src = self.fetchFromGitHub {
+  mpvScripts = prev.mpvScripts.overrideScope (mfinal: mprev: {
+    thumbfast = mprev.thumbfast.overrideAttrs {
+      src = final.fetchFromGitHub {
         owner = "N-R-K";
         repo = "thumbfast";
         rev = "edbc294010bb0d7b3fc5f929c70c6f9b44132654";

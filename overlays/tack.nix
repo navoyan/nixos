@@ -2,13 +2,13 @@
 Unreleased git version
 */
 {
-  self,
-  super,
+  final,
+  prev,
   ...
 }: {
-  tack = super.tack.overrideAttrs {
+  tack = prev.tack.overrideAttrs {
     version = "unstable-2026-11-03";
-    src = self.fetchFromGitHub {
+    src = final.fetchFromGitHub {
       owner = "manic-systems";
       repo = "tack";
       rev = "aea40b8c73e6e7552229d87885fde8d1f69a060a";
