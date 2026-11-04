@@ -1,0 +1,34 @@
+[all_follow]
+nixpkgs = "nixpkgs"
+flake-parts = "flake-parts"
+
+[shorturls]
+codeberg = "git+https://codeberg.org/{path}"
+
+## inputs
+
+[inputs.nixpkgs]
+url = "github:nixos/nixpkgs/nixos-unstable"
+
+[inputs.nixpkgs-qt6-10]
+url = "github:nixos/nixpkgs/490a861fd99d76cfb6f86076c40a04bd07783628"
+
+[inputs.nur]
+url = "github:nix-community/NUR"
+
+[inputs.hjem]
+url = "github:feel-co/hjem"
+
+[inputs.jail-nix]
+url = "codeberg:alexdavid/jail.nix"
+
+[inputs.nix-cachyos-kernel]
+url = "github:xddxdd/nix-cachyos-kernel/release"
+exclude_follow = ["nixpkgs"]
+
+[inputs.spicetify-nix]
+url = "github:Gerg-L/spicetify-nix"
+
+[inputs.sls-steam]
+url = "github:AceSLS/SLSsteam"
+tag = "{version}"

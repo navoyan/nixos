@@ -1,31 +1,7 @@
 {
-  description = "NixOS config flake";
-  inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-qt6-10.url = "github:nixos/nixpkgs/490a861fd99d76cfb6f86076c40a04bd07783628";
-
-    nur = {
-      url = "github:nix-community/NUR";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    hjem = {
-      url = "github:feel-co/hjem";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    jail-nix.url = "sourcehut:~alexdavid/jail.nix";
-
-    nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
-    spicetify-nix = {
-      url = "github:Gerg-L/spicetify-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    sls-steam = {
-      url = "github:AceSLS/SLSsteam";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-  };
-  outputs = inputs: {
+  outputs = args: let
+    inputs = args // import ./.tack;
+  in {
     nixosConfigurations = import ./hosts inputs;
     overlays = import ./overlays inputs;
     packages = import ./pkgs inputs;

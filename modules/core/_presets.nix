@@ -11,6 +11,7 @@
     ./nix.nix
     ./security.nix
     ./snapper.nix
+    ./tack.nix
     ./xdg.nix
   ];
 }

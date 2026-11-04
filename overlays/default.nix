@@ -37,6 +37,9 @@ in {
   qutebrowser = mkOverlay [
     ./qutebrowser.nix
   ];
+  tack = mkOverlay [
+    ./tack.nix
+  ];
   pinentry-qt = mkOverlay [
     ./pinentry-qt.nix
   ];

@@ -10,8 +10,16 @@ repos:
     hooks:
       - id: alejandra
         name: alejandra
-        entry: alejandra
-        args: ["-q"]
+        entry: alejandra --quiet
+        types: [nix]
+        exclude:
+          glob: ".tack/**"
+        language: system
+
+      - id: tack-init-resolver
+        name: tack init resolver
+        entry: tack init --resolver
+        pass_filenames: false
         types: [nix]
         language: system
 
@@ -23,8 +31,7 @@ repos:
 
       - id: shfmt
         name: shfmt
-        entry: shfmt
-        args: ["--write"]
+        entry: shfmt --write
         types: [shell]
         language: system
 
