@@ -5,8 +5,25 @@
   config,
   ...
 }: let
-  enabledJails = config.my.jails |> lib.filterAttrs (_: jailCfg: jailCfg.enable);
-  bootstrappedJails = enabledJails |> lib.filterAttrs (_: jailCfg: jailCfg.bootstrapService.enable);
+  inherit
+    (lib)
+    getExe
+    types
+    ;
+  inherit
+    (lib.options)
+    literalExpression
+    mkEnableOption
+    mkOption
+    mkPackageOption
+    ;
+  inherit
+    (lib.attrsets)
+    concatMapAttrs
+    filterAttrs
+    mapAttrsToList
+    ;
+  inherit (lib.strings) toLower;
 
   # connects to the jail socket and passes argv
   jailTx = jailName:
@@ -18,7 +35,7 @@
   jailRx = jailName: jailCfg:
     localLib.jail.bin "${jailName}-jail-rx" jailCfg.package (
       combinators:
-        (jailCfg.permissions combinators)
+        (jailCfg.allPermissions combinators)
         ++ (with combinators; [
           (add-pkg-deps [pkgs.s6])
           (wrap-entry (entry:
@@ -34,37 +51,61 @@
             ''))
         ])
     );
-in {
-  options = {
-    my.jails = lib.options.mkOption {
-      type = lib.types.attrsOf (lib.types.submodule ({name, ...}: {
-        options = {
-          enable = lib.mkEnableOption "jail for ${name}";
-          package = lib.options.mkPackageOption pkgs name {};
-          bootstrapService = lib.mkOption {
-            type = lib.types.submodule {
-              options = {
-                enable = lib.mkOption {
-                  type = lib.types.bool;
-                  example = true;
-                };
-              };
+
+  mkPermissionsOption = extraAttrs:
+    mkOption {
+      type = types.anything;
+      example =
+        literalExpression
+        # nix
+        ''
+          combinators:
+            with combinators; [
+            ]
+        '';
+    }
+    // extraAttrs;
+
+  jailSubmodule = types.submodule ({
+    name,
+    config,
+    ...
+  }: {
+    options = {
+      enable = mkEnableOption "jail for ${name}";
+      package = mkPackageOption pkgs name {};
+      bootstrapService = mkOption {
+        type = types.submodule {
+          options = {
+            enable = mkOption {
+              type = types.bool;
+              example = true;
             };
           };
-          permissions = lib.mkOption {
-            type = lib.types.anything;
-            example =
-              lib.literalExpression
-              # nix
-              ''
-                combinators:
-                  with combinators; [
-                  ]
-              '';
-          };
         };
-      }));
+      };
+      basePermissions = mkPermissionsOption {
+        default = combinators: [];
+      };
+      permissions = mkPermissionsOption {};
+      allPermissions = mkOption {
+        type = types.anything;
+        readOnly = true;
+        internal = true;
+      };
     };
+    config = {
+      allPermissions = combinators:
+        (config.basePermissions combinators)
+        ++ (config.permissions combinators);
+    };
+  });
+
+  enabledJails = config.my.jails |> filterAttrs (_: jailCfg: jailCfg.enable);
+  bootstrappedJails = enabledJails |> filterAttrs (_: jailCfg: jailCfg.bootstrapService.enable);
+in {
+  options.my.jails = mkOption {
+    type = types.attrsOf jailSubmodule;
   };
 
   config = {
@@ -73,7 +114,7 @@ in {
         pkgs.bubblewrap # for man pages and tricks
       ]
       ++ (enabledJails
-        |> lib.mapAttrsToList (
+        |> mapAttrsToList (
           jailName: jailCfg:
             if jailCfg.bootstrapService.enable
             then
@@ -84,13 +125,13 @@ in {
                   jailCfg.package
                 ];
               }
-            else (localLib.jail.pkg jailName jailCfg.package jailCfg.permissions)
+            else (localLib.jail.pkg jailName jailCfg.package jailCfg.allPermissions)
         ));
 
     systemd.user.sockets =
       bootstrappedJails
-      |> lib.concatMapAttrs (jailName: _: {
-        "${lib.toLower jailName}-jail" = {
+      |> concatMapAttrs (jailName: _: {
+        "${toLower jailName}-jail" = {
           wantedBy = ["sockets.target"];
           socketConfig = {
             ListenStream = "%t/h2jc/${jailName}/sock";
@@ -103,15 +144,15 @@ in {
 
     systemd.user.services =
       bootstrappedJails
-      |> lib.concatMapAttrs (jailName: jailCfg: {
-        "${lib.toLower jailName}-jail" = {
+      |> concatMapAttrs (jailName: jailCfg: {
+        "${toLower jailName}-jail" = {
           enable = true;
           wantedBy = ["graphical-session.target"];
           path = ["/run/current-system/sw"];
           serviceConfig = {
             Type = "exec";
             StandardInput = "socket";
-            ExecStart = lib.getExe (jailRx jailName jailCfg);
+            ExecStart = getExe (jailRx jailName jailCfg);
             Restart = "on-failure";
             RestartSec = 1;
             TimeoutStopSec = 10;
@@ -129,7 +170,10 @@ in {
       path = [pkgs.coreutils];
       script = ''
         mkdir -p /run/jail
-        echo "jail:$(< /etc/machine-id)" | sha256sum | cut -c1-32 > /run/jail/fake-machine-id
+        echo "jail:$(< /etc/machine-id)" \
+          | sha256sum \
+          | cut -c1-32 \
+          > /run/jail/fake-machine-id
       '';
     };
   };
