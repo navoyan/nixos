@@ -1,24 +1,13 @@
 {
   pkgs,
   localLib,
+  flake,
   ...
 }: let
-  scriptsDir = "~/nixos/modules/programs/steam/scripts";
+  scriptsDir = "~/nixos/modules/desktop/gaming/scripts";
 
-  depotDownloaderMod = pkgs.depotdownloader.overrideAttrs (old: {
-    version = "unstable-2026-10-09";
-    src = pkgs.fetchFromGitHub {
-      owner = "oureveryday";
-      repo = "DepotDownloaderMod";
-      rev = "24d9931789fc35de6becf2e2a498d01cfcd0dc03";
-      hash = "sha256-uxsYrLRlpw0BMbP8bEFCzJYuPIP/+NQ2ZBYdz9+MWak=";
-    };
-    dotnetProjectFiles = ["DepotDownloaderMod.sln"];
-    projectFile = "DepotDownloaderMod.sln";
-    dotnetFlags = (old.dotnetFlags or []) ++ ["-p:TreatWarningsAsErrors=false"];
-    meta.mainProgram = "DepotDownloaderMod";
-  });
-  depotDownloaderModJailed = localLib.jail.bin "DepotDownloaderMod" depotDownloaderMod (combinators:
+  overlay = flake.overlays.depotdownloader;
+  depotDownloaderModJailed = localLib.jail.bin "DepotDownloaderMod" pkgs.depotdownloader (combinators:
     with combinators; [
       network
 
@@ -70,6 +59,8 @@
     '';
   };
 in {
+  nixpkgs.overlays = [overlay];
+
   environment.systemPackages = [depotdl];
 
   programs.steam.extraPackages = [

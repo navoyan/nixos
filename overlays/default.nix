@@ -44,5 +44,8 @@ in {
     pinentry-qt = mkOverlay [
       ./pinentry-qt.nix
     ];
+    depotdownloader = mkOverlay [
+      ./depotdownloader.nix
+    ];
   };
 }
