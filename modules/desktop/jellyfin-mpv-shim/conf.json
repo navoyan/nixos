@@ -1,0 +1,10 @@
+{
+    "close_to_tray": false,
+    "mpv_ext": true,
+    "mpv_ext_no_ovr": true,
+    "osc_style": "custom",
+    "render_quality": "high",
+    "video_volume": 70,
+    "ui_text_scale": 1.1,
+    "poster_scale": 1.4
+}

@@ -7,6 +7,7 @@
     ./discord
     ./gtk
     ./imv
+    ./jellyfin-mpv-shim
     ./kitty
     ./mpv
     ./niri
