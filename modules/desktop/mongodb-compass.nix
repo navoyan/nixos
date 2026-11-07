@@ -17,7 +17,7 @@
         (mkdir-readwrite (noescape "~/.config/'MongoDB Compass'"))
         (mkdir-rw-bind (noescape "~/.local/state/mongodb-compass") (noescape "~/.mongodb/compass"))
 
-        (mkdir-readonly (noescape "~/Downloads"))
+        (mkdir-readwrite (noescape "~/Downloads"))
         (mkdir-readonly (noescape "~/projects"))
       ];
   };
