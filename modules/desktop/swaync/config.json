@@ -6,11 +6,7 @@
     "control-center-margin-top": 6,
     "control-center-margin-bottom": 5,
     "control-center-margin-right": 6,
-    "widgets": [
-        "buttons-grid",
-        "slider#backlight",
-        "mpris"
-    ],
+    "widgets": ["buttons-grid", "slider#backlight", "mpris"],
     "widget-config": {
         "buttons-grid": {
             "buttons-per-row": 4,
@@ -47,9 +43,7 @@
         },
         "mpris": {
             "loop-carousel": true,
-            "blacklist": [
-                "chromium.instance"
-            ]
+            "blacklist": ["chromium.instance"]
         }
     }
 }

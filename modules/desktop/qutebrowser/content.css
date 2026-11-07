@@ -6,7 +6,6 @@
 .ui.tabular.menu > .active.item,
 /* github: */
 .border.rounded-2,
-.border.rounded-top-2
-{
+.border.rounded-top-2 {
     border-radius: 0 !important;
 }

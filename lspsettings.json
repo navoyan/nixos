@@ -1,9 +1,7 @@
 {
     "nixd": {
         "formatting": {
-            "command": [
-                "alejandra"
-            ]
+            "command": ["alejandra"]
         },
         "nixpkgs": {
             "expr": "import (builtins.getFlake \"/home/narek/nixos\").inputs.nixpkgs { }"

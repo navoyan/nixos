@@ -26,14 +26,17 @@
     }
     "python -c '${printDefaultConf}' > $out";
 
-  jellyfinMpvShim = pkgs.writeShellScriptBin "jellyfin-mpv-shim" ''
-    conf=~/.config/jellyfin-mpv-shim/conf.json
-    conf_generated=~/.config/jellyfin-mpv-shim/conf.generated.json
-    ${getExe pkgs.jq} --indent 4 -s '.[0] * .[1]' ${defaultConfFile} ${managedConfPath} > "$conf_generated"
-    cp "$conf_generated" "$conf"
+  jellyfinMpvShim = pkgs.writeShellApplication {
+    name = "jellyfin-mpv-shim";
+    text = ''
+      conf=~/.config/jellyfin-mpv-shim/conf.json
+      conf_generated=~/.config/jellyfin-mpv-shim/conf.generated.json
+      ${getExe pkgs.jq} --indent 4 -s '.[0] * .[1]' ${defaultConfFile} ${managedConfPath} > "$conf_generated"
+      cp "$conf_generated" "$conf"
 
-    exec ${getExe pkgs.jellyfin-mpv-shim} "$@"
-  '';
+      exec ${getExe pkgs.jellyfin-mpv-shim} "$@"
+    '';
+  };
 in {
   imports = [
     ../mpv

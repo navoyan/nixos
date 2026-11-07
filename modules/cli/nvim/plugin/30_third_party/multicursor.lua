@@ -22,7 +22,7 @@ schedule.later(function()
     local visual_mode = {
         v = true,
         V = true,
-        [""] = true,
+        [vim.keycode("<C-v>")] = true,
     }
     local function match_or_search_cursor_fn(opts)
         return function()

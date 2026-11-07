@@ -1,21 +1,21 @@
 :root {
-    --cc-bg: #16161E;
-    --noti-border-color: #7AA2F7;
+    --cc-bg: #16161e;
+    --noti-border-color: #7aa2f7;
     --noti-bg: #1a1b26;
     --noti-bg-darker: #2b2b39;
     --noti-bg-hover: #1b1b2b;
     --noti-bg-hover-opaque: #1b1b2b;
     --noti-bg-focus: transparent;
-    --noti-close-bg: #7AA2F7;
-    --noti-close-bg-hover: #7AA2F7;
-    --text-color: #7AA2F7;
+    --noti-close-bg: #7aa2f7;
+    --noti-close-bg-hover: #7aa2f7;
+    --text-color: #7aa2f7;
     --text-color-disabled: #828282;
     --bg-selected: #7e9cd8;
-    --border-blue: #7AA2F7;
+    --border-blue: #7aa2f7;
     --red-base: #c34043;
     --red-hover: #e46876;
     --green-base: #98bb6c;
-    --blue-base: #7AA2F7;
+    --blue-base: #7aa2f7;
     --yellow-base: #ffc777;
     --noti-group-button-hover: rgba(0, 0, 0, 0.5);
 
@@ -29,8 +29,8 @@
 }
 
 scrollbar trough {
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
 }
 
 .control-center {
@@ -64,17 +64,17 @@ scrollbar trough {
 .inline-reply-entry,
 .inline-reply-button,
 .widget-title,
-.widget-title>button,
+.widget-title > button,
 .widget-dnd,
-.widget-dnd>switch,
-.widget-dnd>switch slider,
-.widget-label>label,
+.widget-dnd > switch,
+.widget-dnd > switch slider,
+.widget-label > label,
 .widget-buttons-grid,
-.widget-buttons-grid>flowbox>flowboxchild>button,
+.widget-buttons-grid > flowbox > flowboxchild > button,
 .widget-volume,
 .widget-slider,
 .widget-mpris,
-.widget-mpris>box>button,
+.widget-mpris > box > button,
 .widget-mpris-player,
 .widget-mpris-album-art {
     border-radius: 0;
@@ -213,14 +213,14 @@ scrollbar trough {
     font-size: 20px;
 }
 
-.widget-title>button {
+.widget-title > button {
     font-size: 16px;
     color: var(--text-color);
     background: var(--noti-bg);
     box-shadow: none;
 }
 
-.widget-title>button:hover {
+.widget-title > button:hover {
     background: var(--red-base);
     color: var(--cc-bg);
 }
@@ -233,17 +233,17 @@ scrollbar trough {
     color: var(--blue-base);
 }
 
-.widget-dnd>switch {
+.widget-dnd > switch {
     background: var(--blue-base);
     border-radius: 0;
 }
 
-.widget-dnd>switch:checked {
+.widget-dnd > switch:checked {
     background: var(--red-base);
     border: 1px solid var(--red-base);
 }
 
-.widget-label>label {
+.widget-label > label {
     font-size: 16px;
     color: var(--text-color);
     margin: 10px;
@@ -256,19 +256,19 @@ scrollbar trough {
     background: var(--noti-bg-darker);
 }
 
-.widget-buttons-grid>flowbox>flowboxchild>button {
+.widget-buttons-grid > flowbox > flowboxchild > button {
     margin: 0;
     background: var(--cc-bg);
     color: var(--text-color);
     transition: var(--hover-transition);
 }
 
-.widget-buttons-grid>flowbox>flowboxchild>button:hover {
+.widget-buttons-grid > flowbox > flowboxchild > button:hover {
     background: var(--blue-base);
     color: var(--cc-bg);
 }
 
-.widget-buttons-grid>flowbox>flowboxchild>button:checked {
+.widget-buttons-grid > flowbox > flowboxchild > button:checked {
     background: var(--green-base);
     color: var(--cc-bg);
 }
@@ -314,11 +314,11 @@ scrollbar trough {
 
 /* hide mpris side buttons */
 .widget-mpris > box > button {
-  opacity: 0;
-  padding: 0;
-  min-width: 0;
-  min-height: 0;
-  margin: 0 -10px;
+    opacity: 0;
+    padding: 0;
+    min-width: 0;
+    min-height: 0;
+    margin: 0 -10px;
 }
 
 .widget-mpris-title {

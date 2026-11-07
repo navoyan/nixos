@@ -45,7 +45,7 @@ print_with_info() {
 
 read -r status selection <<< "${ROFI_INFO:-}"
 
-if [[ -z "$selection" ]]; then
+if [[ -z $selection ]]; then
     for entry in "${all[@]}"; do
         print_with_info "${icons[$entry]} ${texts[$entry]^}" "unconfirmed $entry"
     done

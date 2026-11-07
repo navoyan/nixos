@@ -1,6 +1,7 @@
 [all_follow]
 nixpkgs = "nixpkgs"
 flake-parts = "flake-parts"
+flake-compat = "flake-compat"
 
 [shorturls]
 codeberg = "git+https://codeberg.org/{path}"
@@ -21,6 +22,9 @@ url = "github:feel-co/hjem"
 
 [inputs.jail-nix]
 url = "codeberg:alexdavid/jail.nix"
+
+[inputs.git-hooks]
+url = "github:cachix/git-hooks.nix"
 
 [inputs.nix-cachyos-kernel]
 url = "github:xddxdd/nix-cachyos-kernel/release"

@@ -98,7 +98,7 @@ fetch_manifest_files() {
     DEPOT_DIR="$DATA_ROOT/$MAIN_APP_ID"
     DEPOT_LUA_FILE="$DEPOT_DIR/$MAIN_APP_ID.lua"
 
-    if [[ -f "$DEPOT_LUA_FILE" ]]; then
+    if [[ -f $DEPOT_LUA_FILE ]]; then
         warn "Using existing manifests in $DEPOT_DIR, skipping fetch..."
         return
     fi
@@ -114,7 +114,7 @@ fetch_manifest_files() {
         die "Failed to download or extract manifests for $MAIN_APP_ID."
     fi
 
-    [[ -f "$DEPOT_LUA_FILE" ]] || die "No .lua file found in '$DEPOT_DIR'."
+    [[ -f $DEPOT_LUA_FILE ]] || die "No .lua file found in '$DEPOT_DIR'."
 }
 
 fetch_app_info() {
@@ -128,7 +128,7 @@ fetch_app_info() {
     )
 
     APP_INSTALL_DIRNAME=$(jq -r '.config.installdir // empty' <<< "$game_info")
-    if [[ -z "$APP_INSTALL_DIRNAME" ]]; then
+    if [[ -z $APP_INSTALL_DIRNAME ]]; then
         APP_INSTALL_DIRNAME="$APP_NAME"
     fi
     APP_INSTALL_DIRNAME="${APP_INSTALL_DIRNAME//[\/:*?\"<>|]/}"
@@ -175,7 +175,7 @@ parse_lua() {
         if [[ $line =~ $re_manifest ]]; then
             id="${BASH_REMATCH[1]}"
             manifest="${BASH_REMATCH[2]}"
-            if [[ -n "${DEPOT_KEYS[$id]:-}" && -z "${DEPOT_MANIFESTS[$id]:-}" ]]; then
+            if [[ -n ${DEPOT_KEYS[$id]:-} && -z ${DEPOT_MANIFESTS[$id]:-} ]]; then
                 DEPOT_MANIFESTS["$id"]="$manifest"
                 DEPOT_IDS+=("$id")
             fi
@@ -184,7 +184,7 @@ parse_lua() {
 
     ((${#DEPOT_IDS[@]} > 0)) || die "No depots with manifest and key found in the .lua file."
 
-    if [[ -n "${DEPOT_MANIFESTS[$MAIN_APP_ID]:-}" ]]; then
+    if [[ -n ${DEPOT_MANIFESTS[$MAIN_APP_ID]:-} ]]; then
         MAIN_DEPOT_ID="$MAIN_APP_ID"
     else
         MAIN_DEPOT_ID="${DEPOT_IDS[0]}"
@@ -197,7 +197,7 @@ depot_display_name() {
     local re_prefix='^Depot[[:space:]]+[0-9]+[[:space:]]*--?[[:space:]]*(.*)$'
     local re_bare='^Depot[[:space:]]+[0-9]+$'
 
-    if [[ "$MAIN_DEPOT_ID" == "$id" ]]; then
+    if [[ $MAIN_DEPOT_ID == "$id" ]]; then
         echo "$APP_NAME"
         return
     fi
@@ -208,7 +208,7 @@ depot_display_name() {
         trim "${BASH_REMATCH[1]}"
     elif [[ $desc =~ $re_prefix ]]; then
         trim "${BASH_REMATCH[1]}"
-    elif [[ -z "$desc" || $desc =~ $re_bare ]]; then
+    elif [[ -z $desc || $desc =~ $re_bare ]]; then
         printf '%s - Depot %s' "$APP_NAME" "$id"
     else
         printf '%s - %s' "$APP_NAME" "$desc"
@@ -231,7 +231,7 @@ verify_manifests_present() {
 
     for id in "${DEPOT_IDS[@]}"; do
         expected="$DEPOT_DIR/${id}_${DEPOT_MANIFESTS[$id]}.manifest"
-        if [[ ! -f "$expected" ]]; then
+        if [[ ! -f $expected ]]; then
             echo "${ERR_RED}  MISSING: $(basename "$expected")${RESET}" >&2
             missing=1
         fi
@@ -342,7 +342,7 @@ print_selection_and_collect() {
     echo "${BOLD}Install to${RESET}: ${YELLOW}$APP_INSTALL_DIR${RESET}"
     echo
     for id in "${DEPOT_IDS[@]}"; do
-        if [[ "${SELECTED_DEPOTS[$id]:-}" == 1 ]]; then
+        if [[ ${SELECTED_DEPOTS[$id]:-} == 1 ]]; then
             echo "${GREEN}[+]${RESET} ${DEPOT_NAMES[$id]} ( $id )"
             if download_size=$(depot_info "$id" download) \
                 && on_disk_size=$(depot_info "$id" size); then

@@ -9,7 +9,7 @@ in {
   };
 
   overlay = final: prev: {
-    mpvScripts = prev.mpvScripts.overrideScope (mfinal: mpref: {
+    mpvScripts = prev.mpvScripts.overrideScope (mfinal: _mprev: {
       mfpbar = mfinal.callPackage ./mpv/mfpbar.nix {};
       thumbyt = mfinal.callPackage ./mpv/thumbyt.nix {};
     });

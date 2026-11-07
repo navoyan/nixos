@@ -1,0 +1,17 @@
+[files]
+extend-exclude = [
+  # fork of existing gtk theme, should not diverge from upstream too much:
+  "modules/desktop/gtk/themes/TokyoNight/**",
+]
+
+[default]
+extend-ignore-re = [
+  # vim leader key sequence:
+  "<Leader>\\w+",
+  # hex color:
+  "\\b[0-9a-fA-F]{6}\\b",
+]
+
+[default.extend-words]
+# High-Definition Audio:
+HDA = "HDA"

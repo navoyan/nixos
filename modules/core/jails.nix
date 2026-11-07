@@ -85,7 +85,7 @@
         };
       };
       basePermissions = mkPermissionsOption {
-        default = combinators: [];
+        default = _combinators: [];
       };
       permissions = mkPermissionsOption {};
       allPermissions = mkOption {

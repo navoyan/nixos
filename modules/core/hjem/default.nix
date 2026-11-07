@@ -30,7 +30,7 @@ in {
 
   config = {
     hjem.users = genAttrs config.my.manageHomeForUsers (user: {
-      user = user;
+      inherit user;
       directory = "/home/${user}";
       files = {
         ".bash_profile".source = config.hjem.users.${user}.environment.loadEnv;

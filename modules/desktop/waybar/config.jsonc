@@ -2,9 +2,7 @@
     "reload_style_on_change": true,
     "layer": "top",
     "position": "top",
-    "output": [
-        "DP-1"
-    ],
+    "output": ["DP-1"],
     "modules-left": [
         "cpu",
         "memory",
@@ -12,9 +10,7 @@
         "custom/exchange-rates",
         "niri/language"
     ],
-    "modules-center": [
-        "niri/workspaces#numbers"
-    ],
+    "modules-center": ["niri/workspaces#numbers"],
     "modules-right": [
         "tray",
         "privacy",
@@ -95,10 +91,7 @@
             "phone-muted": " ",
             "portable": " ",
             "car": " ",
-            "default": [
-                " ",
-                " "
-            ]
+            "default": [" ", " "]
         },
         "format-source": "",
         "format-source-muted": " 󰍭",
@@ -106,9 +99,7 @@
         "on-click": "kitty --app-id wiremix -e wiremix",
         "on-click-right": "blueman-manager",
         "on-click-middle": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
-        "ignored-sinks": [
-            "Easy Effects Sink"
-        ]
+        "ignored-sinks": ["Easy Effects Sink"]
     },
     "clock": {
         "format": "{:%OI:%OM %p}",

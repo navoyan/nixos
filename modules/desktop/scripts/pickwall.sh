@@ -76,7 +76,7 @@ parallel_jobs=4
 xargs -0 -P "$parallel_jobs" -I {} bash -c 'process_image "$1"' _ {} < "$file_list"
 
 for cached in "$cache_dir"/*; do
-    if [[ ! -f "$cached" ]]; then
+    if [[ ! -f $cached ]]; then
         continue
     fi
     file_name="${cached##*/}"
@@ -94,6 +94,6 @@ wall_selection=$(xargs -0 basename -a < "$file_list" \
         printf '%s\000icon\037%s/%s\n' "$name" "$cache_dir" "$name"
     done | "${rofi_cmd[@]}")
 
-if [[ -n "$wall_selection" ]]; then
+if [[ -n $wall_selection ]]; then
     awww img "${wall_dir}/${wall_selection}"
 fi

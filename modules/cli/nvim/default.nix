@@ -19,9 +19,10 @@
 
     alejandra
     biome
+    buildifier
     nixfmt-rs
-    stylua
     shfmt
+    stylua
 
     shellcheck
   ];

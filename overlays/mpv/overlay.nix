@@ -6,7 +6,7 @@ Unreleased git version
   prev,
   ...
 }: {
-  mpv-unwrapped = prev.mpv-unwrapped.overrideAttrs (old: {
+  mpv-unwrapped = prev.mpv-unwrapped.overrideAttrs {
     version = "v0.41.0-UNKNOWN";
     src = final.fetchFromGitHub {
       owner = "mpv-player";
@@ -19,8 +19,9 @@ Unreleased git version
       # bash
       ''
         substituteInPlace meson.build \
-          --replace-fail "conf_data.set_quoted('CONFIGURATION', meson.build_options().strip().replace('\\\\', '\\\\\\\\'))" \
-                         "conf_data.set_quoted('CONFIGURATION', '<omitted>')"
+          --replace-fail \
+            "conf_data.set_quoted('CONFIGURATION', meson.build_options().strip().replace('\\\\', '\\\\\\\\'))" \
+            "conf_data.set_quoted('CONFIGURATION', '<omitted>')"
       ''
       # A trick to patchShebang everything except mpv_identify.sh
       # bash
@@ -32,5 +33,5 @@ Unreleased git version
         popd
       ''
     ];
-  });
+  };
 }

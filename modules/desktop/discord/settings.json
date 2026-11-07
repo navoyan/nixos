@@ -4,11 +4,7 @@
     "arRPC": false,
     "splashColor": "rgb(169, 177, 214)",
     "splashBackground": "rgb(26, 27, 38)",
-    "spellCheckLanguages": [
-        "en-US",
-        "en",
-        "ru"
-    ],
+    "spellCheckLanguages": ["en-US", "en", "ru"],
     "webRTCIPHandlingPolicy": "default_public_and_private_interfaces",
     "audio": {
         "ignoreVirtual": true

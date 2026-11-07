@@ -15,7 +15,8 @@ layout_uv() {
     fi
 
     if [[ ! -f pyproject.toml ]]; then
-        log_error "uv: no pyproject.toml found. Run \`uv init\` to create a project."
+        # shellcheck disable=SC2016
+        log_error 'uv: no pyproject.toml found. Run `uv init` to create a project.'
         return 1
     fi
 
@@ -27,7 +28,7 @@ layout_uv() {
     local sync_args=()
     # uv python specifiers (versions, paths, implementations) never start with
     # "--", so this distinguishes a python specifier from arguments intended for `uv sync`.
-    if [[ -n "${1:-}" && "${1:-}" != --* ]]; then
+    if [[ -n ${1:-} && ${1:-} != --* ]]; then
         python_arg=(--python "$1")
         sync_args=("${@:2}")
     else

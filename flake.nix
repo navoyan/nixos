@@ -6,5 +6,6 @@
     inherit (output ./hosts) nixosConfigurations;
     inherit (output ./overlays) overlays;
     inherit (output ./pkgs) packages;
+    inherit (output ./shells) devShells;
   };
 }

@@ -100,7 +100,7 @@ if !has("nvim")
     set foldmethod=indent " Fold by lines with equal indent
 
     if $TERM =~ 'xterm'
-      set noek
+        set noek
     endif
 
     " Almost minimal colors from TokyoNight to be used in clean Vim.

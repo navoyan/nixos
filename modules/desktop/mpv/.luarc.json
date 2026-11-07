@@ -3,7 +3,5 @@
     "runtime": {
         "version": "LuaJIT"
     },
-    "workspace.library": [
-        "./types/"
-    ]
+    "workspace.library": ["./types/"]
 }

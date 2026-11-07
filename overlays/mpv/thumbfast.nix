@@ -6,7 +6,7 @@ Support for mpv's preview api
   prev,
   ...
 }: {
-  mpvScripts = prev.mpvScripts.overrideScope (mfinal: mprev: {
+  mpvScripts = prev.mpvScripts.overrideScope (_mfinal: mprev: {
     thumbfast = mprev.thumbfast.overrideAttrs {
       src = final.fetchFromGitHub {
         owner = "N-R-K";
