@@ -1,5 +1,5 @@
 {pkgs, ...}: let
-  scriptsDir = "~/nixos/modules/core/nh";
+  scriptsDir = "~/nixos/modules/core/nix/scripts";
 
   osScript = pkgs.writeShellApplication {
     name = "os";
@@ -8,14 +8,6 @@
     '';
   };
 in {
-  programs.nh.enable = true;
-
-  hj = {config, ...}: {
-    environment.sessionVariables = {
-      NH_FLAKE = "${config.directory}/nixos";
-    };
-  };
-
   environment.systemPackages = [
     osScript
   ];

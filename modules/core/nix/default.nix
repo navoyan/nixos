@@ -1,4 +1,11 @@
 {
+  imports = [
+    ./scripts
+
+    ./housekeeping.nix
+    ./nh.nix
+  ];
+
   nix.channel.enable = false;
   nix.settings = {
     use-xdg-base-directories = true;
