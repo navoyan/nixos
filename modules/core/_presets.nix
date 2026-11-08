@@ -4,6 +4,7 @@
     ./nix
     ./virtualisation
 
+    ./boot.nix
     ./compatibility.nix
     ./jails.nix
     ./locale.nix
