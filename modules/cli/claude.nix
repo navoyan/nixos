@@ -13,6 +13,7 @@
         (readonly "/nix/var/nix")
         (readonly "/etc/nix/nix.conf")
         (ro-bind "${pkgs.nix-ld}/libexec/nix-ld" "/lib64/ld-linux-x86-64.so.2")
+        (mkdir-readwrite (noescape "~/.cache/nix"))
 
         # direnv:
         (add-pkg-deps [pkgs.direnv])
@@ -32,7 +33,7 @@
         # projects:
         mount-cwd
         (mkdir-readwrite (noescape "~/projects"))
-        (readwrite (noescape "~/nixos"))
+        (defer (readwrite (noescape "~/nixos")))
         (mkdir-readwrite (noescape "~/vaults"))
 
         ## workflow
@@ -50,6 +51,14 @@
 
         (add-pkg-deps (with pkgs; [
           curl
+          diffutils
+          fd
+          gnused
+          jq
+          procps
+          ripgrep
+          tree
+          which
         ]))
 
         (add-pkg-deps [pkgs.kubectl])
