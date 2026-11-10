@@ -8,6 +8,7 @@
     "nixpkgs-qt6-10": "github:nixos/nixpkgs/490a861fd99d76cfb6f86076c40a04bd07783628",
     "nur": "github:nix-community/NUR",
     "sls-steam": "github:AceSLS/SLSsteam",
+    "sofka": "github:nklmilojevic/sofka",
     "spicetify-nix": "github:Gerg-L/spicetify-nix"
   },
   "flake-parts": {
@@ -83,6 +84,16 @@
     "lastModified": 1791984636,
     "tag": "20261014151919",
     "version": "20261014151919"
+  },
+  "sofka": {
+    "type": "github",
+    "owner": "nklmilojevic",
+    "repo": "sofka",
+    "rev": "07aaa922add41774b6900e6429618255772639c7",
+    "narHash": "sha256-1rfCijFINdO553yURgSPBxLrYSkTUAX4N/Kk5G/ZkHs=",
+    "lastModified": 1793564615,
+    "tag": "v0.34.0",
+    "version": "0.34.0"
   },
   "spicetify-nix": {
     "type": "github",

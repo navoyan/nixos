@@ -8,6 +8,7 @@
     ./less
     ./npage
     ./nvim
+    ./sofka
     ./yazi
 
     ./default.nix

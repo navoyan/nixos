@@ -1,0 +1,64 @@
+compact_mode = true
+update_check = false
+
+[logs]
+fullscreen = true
+
+[experimental]
+native_describe = true
+
+## views
+
+[views."v1/pods"]
+replace = true
+columns = [
+  { name = "NAME", builtin = "NAME" },
+  { name = "READY", builtin = "READY" },
+  { name = "STATUS", builtin = "STATUS" },
+  { name = "RESTARTS", builtin = "RESTARTS" },
+  { name = "IP", builtin = "IP", wide = true },
+  { name = "NODE", builtin = "NODE", wide = true },
+  { name = "AGE", builtin = "AGE" },
+  { name = "CPU", metric = "cpu" },
+  { name = "%CPU/R", metric = "cpu-request-utilization", wide = true },
+  { name = "%CPU/L", metric = "cpu-limit-utilization", wide = true },
+  { name = "MEM", metric = "memory" },
+  { name = "%MEM/R", metric = "memory-request-utilization", wide = true },
+  { name = "%MEM/L", metric = "memory-limit-utilization", wide = true },
+]
+
+## keys
+
+[keys.command]
+complete = ["tab", "right"]
+down = "down"
+
+[keys.navigation]
+half_page_up = "ctrl-k"
+half_page_down = "ctrl-j"
+
+[keys.table]
+delete = "alt-d"
+force_delete = "alt-k"
+
+[keys.logs]
+follow = "s"
+fullscreen = "f"
+
+[keys.detail]
+fullscreen = "f"
+
+[keys.diff]
+fullscreen = "f"
+
+[keys.events]
+fullscreen = "f"
+
+## skin
+
+[skin]
+name = "tokyonight"
+
+[skin.colors]
+base = "#c0caf5"
+lavender = "#283457"

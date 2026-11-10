@@ -15,6 +15,7 @@ abbr b bazel
 abbr k    kubectl
 abbr kns  kubens
 abbr kctx kubectx
+abbr ks   sofka
 
 abbr rust evcxr
 

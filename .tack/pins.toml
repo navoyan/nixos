@@ -36,3 +36,7 @@ url = "github:Gerg-L/spicetify-nix"
 [inputs.sls-steam]
 url = "github:AceSLS/SLSsteam"
 tag = "{version}"
+
+[inputs.sofka]
+url = "github:nklmilojevic/sofka"
+tag = "v{version}"

@@ -5,6 +5,10 @@
   ...
 } @ inputs: let
   inherit (nixpkgs) lib;
+  inherit
+    (lib.fixedPoints)
+    composeManyExtensions
+    ;
 
   mkOverlay = files: final: prev: let
     pkgsQt610 = import nixpkgs-qt6-10 {
@@ -25,7 +29,7 @@
   in
     files
     |> map toOverlay
-    |> lib.composeManyExtensions
+    |> composeManyExtensions
     |> (composed: composed final prev);
 in {
   overlays = {
@@ -46,6 +50,10 @@ in {
     ];
     depotdownloader = mkOverlay [
       ./depotdownloader.nix
+    ];
+    sofka = composeManyExtensions [
+      inputs.sofka.overlays.default
+      (mkOverlay [./sofka.nix])
     ];
   };
 }
