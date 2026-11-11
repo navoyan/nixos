@@ -4,7 +4,6 @@
     ./direnv
     ./fish
     ./git
-    ./k9s
     ./lazygit
     ./less
     ./npage
