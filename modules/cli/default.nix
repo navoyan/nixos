@@ -13,6 +13,7 @@
     libnotify
     moreutils
     rbw
+    rclone
     ripgrep
     tealdeer
     tokei
