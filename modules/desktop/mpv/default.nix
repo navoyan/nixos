@@ -37,12 +37,6 @@
 
   permissions = combinators:
     with combinators; [
-      (add-pkg-deps [
-        # for thumbyt:
-        pkgs.curl
-        pkgs.ffmpeg
-      ])
-
       # detect-lang script:
       (add-pkg-deps [detectLang])
       (fwd-env "CARGO_HOME")

@@ -1,6 +1,9 @@
 {
+  lib,
   buildLua,
   fetchFromCodeberg,
+  curl,
+  ffmpeg,
 }:
 buildLua {
   pname = "thumbyt";
@@ -13,6 +16,12 @@ buildLua {
     rev = "ca506127fe7a3f9235ead023d95c855f6c71c3d6";
     hash = "sha256-wDxfhPipWs6UlnjD8dXU9RxjQH9vSuK1LrOEtisyl3w=";
   };
+
+  preInstall = ''
+    substituteInPlace thumbyt/thumbyt.lua \
+      --replace-fail "curl" "${lib.getExe curl}" \
+      --replace-fail "ffmpeg" "${lib.getExe ffmpeg}"
+  '';
 
   meta.homepage = "https://codeberg.org/NRK/mpv-toolbox";
 }
