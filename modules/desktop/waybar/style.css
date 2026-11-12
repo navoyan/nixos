@@ -91,6 +91,8 @@ window#waybar > box {
 
 #workspaces button {
     color: @textdark;
+    padding: 0 17px;
+    min-width: 0;
 }
 
 #workspaces button.active {
