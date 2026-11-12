@@ -1,9 +1,4 @@
-{
-  pkgs,
-  flake,
-  ...
-}: let
-  overlay = flake.overlays.mpv;
+{pkgs, ...}: let
   mpv = pkgs.mpv.override {
     scripts = with pkgs.mpvScripts; [
       mfpbar
@@ -68,8 +63,6 @@
 
   permissionsWithNetwork = combinators: (permissions combinators) ++ [combinators.network];
 in {
-  nixpkgs.overlays = [overlay];
-
   my.jails.mpv = {
     enable = true;
     bootstrapService.enable = true;

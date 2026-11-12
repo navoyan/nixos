@@ -35,10 +35,6 @@ in {
   overlays = {
     default = (import ../pkgs inputs).overlay;
 
-    mpv = mkOverlay [
-      ./mpv/overlay.nix
-      ./mpv/thumbfast.nix
-    ];
     qutebrowser = mkOverlay [
       ./qutebrowser.nix
     ];
