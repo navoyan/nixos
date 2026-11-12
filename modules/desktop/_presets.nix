@@ -35,6 +35,7 @@
     ./mongodb-compass.nix
     ./pinentry.nix
     ./qbittorrent.nix
+    ./teamspeak-client.nix
     ./telegram.nix
     ./xdg-open.nix
   ];
