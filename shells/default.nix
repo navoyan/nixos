@@ -1,24 +1,19 @@
-{
-  nixpkgs,
-  self,
-  ...
-} @ inputs: let
+{nixpkgs, ...} @ inputs: let
   system = "x86_64-linux";
 
-  pkgs = import nixpkgs {
-    inherit system;
-    overlays = [self.overlays.tack];
-  };
+  pkgs = nixpkgs.legacyPackages.${system};
   inherit (pkgs) lib;
 
+  tack = inputs.tack.packages.${system}.default;
+
   gitHooks = import ./git-hooks {
-    inherit inputs pkgs lib;
+    inherit inputs pkgs lib tack;
   };
 in {
   devShells.${system}.default = pkgs.mkShell {
     packages =
       gitHooks.enabledPackages
-      ++ [pkgs.tack];
+      ++ [tack];
     shellHook =
       # bash
       ''

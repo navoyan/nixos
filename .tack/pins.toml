@@ -26,6 +26,9 @@ url = "codeberg:alexdavid/jail.nix"
 [inputs.git-hooks]
 url = "github:cachix/git-hooks.nix"
 
+[inputs.tack]
+url = "github:manic-systems/tack"
+
 [inputs.nix-cachyos-kernel]
 url = "github:xddxdd/nix-cachyos-kernel/release"
 exclude_follow = ["nixpkgs"]

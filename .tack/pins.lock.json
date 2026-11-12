@@ -9,15 +9,24 @@
     "nur": "github:nix-community/NUR",
     "sls-steam": "github:AceSLS/SLSsteam",
     "sofka": "github:nklmilojevic/sofka",
-    "spicetify-nix": "github:Gerg-L/spicetify-nix"
+    "spicetify-nix": "github:Gerg-L/spicetify-nix",
+    "tack": "github:manic-systems/tack"
+  },
+  "flake-compat": {
+    "type": "github",
+    "owner": "NixOS",
+    "repo": "flake-compat",
+    "rev": "5edf11c44bc78a0d334f6334cdaf7d60d732daab",
+    "narHash": "sha256-vNpUSpF5Nuw8xvDLj2KCwwksIbjua2LZCqhV1LNRDns=",
+    "lastModified": 1767039857
   },
   "flake-parts": {
     "type": "github",
     "owner": "hercules-ci",
     "repo": "flake-parts",
-    "rev": "205b12d8b7cd4802fbcb8e8ef6a0f1408781a4f9",
-    "narHash": "sha256-4pDvzqnegAfRkPwO3wmwBhVi/Sye1mzps0zHWYnP88c=",
-    "lastModified": 1733312601
+    "rev": "ea2630b7470978622c7689a1ff75d2b389175399",
+    "narHash": "sha256-V1h85lUaJBQoHFrB2vpXZOE0Ju1MYSnIpsehoVZYlDo=",
+    "lastModified": 1793576659
   },
   "git-hooks": {
     "type": "github",
@@ -31,9 +40,9 @@
     "type": "github",
     "owner": "feel-co",
     "repo": "hjem",
-    "rev": "8408642aa3035135fa6d70269dc93e0814e2a4f6",
-    "narHash": "sha256-hmlUXxCk6On7Hrop/TyS3//dgI2BLvaN4TEsOq1ma+Y=",
-    "lastModified": 1793333241
+    "rev": "28cec3017cc94842f919f8f294c8b7136216b79b",
+    "narHash": "sha256-tttNqwFIXsClznNv3uEltACsfBm8xIDo9bPl+BHqYZc=",
+    "lastModified": 1794190356
   },
   "jail-nix": {
     "type": "git",
@@ -47,17 +56,17 @@
     "type": "github",
     "owner": "xddxdd",
     "repo": "nix-cachyos-kernel",
-    "rev": "755712deee259ef7efbfe9154038a270c3d75a87",
-    "narHash": "sha256-XnxQUJMkFHQtDT52J1cqCm6QX/Fk5oCv1p9pvfOiaHg=",
-    "lastModified": 1793664202
+    "rev": "53532f14476a597abeaa67bca19f2c009a043fb6",
+    "narHash": "sha256-znvxkrEOmW+CUHVOO/2uYbcTMzfjCcrfS2izPVBZhhU=",
+    "lastModified": 1794003668
   },
   "nixpkgs": {
     "type": "github",
     "owner": "nixos",
     "repo": "nixpkgs",
-    "rev": "0bb2eedc20e4739f29e8045034f2828ad7054f8f",
-    "narHash": "sha256-fiPJ88izTVucjeo2EQ3jk4aWmLg03I1D4vxnX2QjEgE=",
-    "lastModified": 1793540411
+    "rev": "177d0540942fb205af6993b1d5fa0b57799e09f8",
+    "narHash": "sha256-SvB8u5qaJAOwZZyZciqTVOg/rBoUs2w0sFTU6ED51AQ=",
+    "lastModified": 1794192123
   },
   "nixpkgs-qt6-10": {
     "type": "github",
@@ -71,29 +80,29 @@
     "type": "github",
     "owner": "nix-community",
     "repo": "NUR",
-    "rev": "fb2d479696379dd3a9b580bbbde37b0d64429342",
-    "narHash": "sha256-8jJOcxcjmLg5S/IOXh0rGRztSthKtf53x8yV0fJXokI=",
-    "lastModified": 1793704136
+    "rev": "99c38adc24a6096f01cf13d1236a9df7d496dbb3",
+    "narHash": "sha256-sPmNRWC1z9MUjx1BEf/crjEvDqDQsWdj5pWGbWWbUH4=",
+    "lastModified": 1794489015
   },
   "sls-steam": {
     "type": "github",
     "owner": "AceSLS",
     "repo": "SLSsteam",
-    "rev": "a45c19b989bef0295a8e717e2bfd8e2bbf3ad40d",
-    "narHash": "sha256-iFKMZJiDCWri3LfJE3uCQU9NJJuaoUHCQmC6A+Hz/GA=",
-    "lastModified": 1791984636,
-    "tag": "20261014151919",
-    "version": "20261014151919"
+    "rev": "f1a4568c249c2e3863ab865b9e054c47fb87a3b9",
+    "narHash": "sha256-5mwT85v34CnSY/CisWAcFYYcRtZn16goMoOJQQlm5B4=",
+    "lastModified": 1793962943,
+    "tag": "20261106120254",
+    "version": "20261106120254"
   },
   "sofka": {
     "type": "github",
     "owner": "nklmilojevic",
     "repo": "sofka",
-    "rev": "07aaa922add41774b6900e6429618255772639c7",
-    "narHash": "sha256-1rfCijFINdO553yURgSPBxLrYSkTUAX4N/Kk5G/ZkHs=",
-    "lastModified": 1793564615,
-    "tag": "v0.34.0",
-    "version": "0.34.0"
+    "rev": "08aca9de0cf0e491f5b6b863a5a6cb9f6f22d8f5",
+    "narHash": "sha256-o9F54joKQ3ypZDs1Lw/AgGN42+fFJOJ+BE4Pou3KkXY=",
+    "lastModified": 1794340833,
+    "tag": "v0.35.1",
+    "version": "0.35.1"
   },
   "spicetify-nix": {
     "type": "github",
@@ -102,5 +111,13 @@
     "rev": "13e6fed4eb99f809d390fb50f591bed6cb716dc0",
     "narHash": "sha256-a+za5QCDlOe/PsuMlZiBcQ13cyiyOscK17BAJFu1/dE=",
     "lastModified": 1793662659
+  },
+  "tack": {
+    "type": "github",
+    "owner": "manic-systems",
+    "repo": "tack",
+    "rev": "c107b0fc252b0b33b01e6b7d6111aaaedc49613e",
+    "narHash": "sha256-bdNCaHUF3c8hgsYw6FCI+lGcZanZIDxt2Sefu5AsERY=",
+    "lastModified": 1794450976
   }
 }

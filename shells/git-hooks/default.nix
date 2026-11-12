@@ -2,6 +2,7 @@
   inputs,
   pkgs,
   lib,
+  tack,
   ...
 }: let
   inherit
@@ -67,8 +68,8 @@ in
       deadnix.enable = true;
       tack-init-resolver = {
         enable = true;
-        package = pkgs.tack;
-        entry = "${getExe pkgs.tack} init --resolver";
+        package = tack;
+        entry = "${getExe tack} init --resolver";
         types = ["nix"];
         pass_filenames = false;
       };
