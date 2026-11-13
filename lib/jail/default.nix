@@ -5,7 +5,8 @@
   jail-nix,
   ...
 } @ args: let
-  inherit (lib) mergeAttrsList;
+  inherit (lib) getExe;
+  inherit (lib.attrsets) mergeAttrsList;
 in rec {
   bin = jail-nix.lib.extend {
     inherit pkgs;
@@ -53,9 +54,11 @@ in rec {
   pkg = name: pkg: permissions:
     pkgs.symlinkJoin {
       inherit (pkg) name;
-      paths = [
-        (bin name pkg permissions)
-        pkg
-      ];
+      meta = pkg.meta // {mainProgram = name;};
+      paths = [pkg];
+      postBuild = ''
+        ln -sf ${getExe (bin name pkg permissions)} $out/bin/${name}
+      '';
+      passthru.unjailed = pkg;
     };
 }
