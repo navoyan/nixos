@@ -6,5 +6,6 @@
     "render_quality": "high",
     "video_volume": 70,
     "ui_text_scale": 1.1,
-    "poster_scale": 1.4
+    "poster_scale": 1.4,
+    "kb_kill_shader": null
 }

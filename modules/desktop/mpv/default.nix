@@ -23,8 +23,11 @@
 
   basePermissions = combinators:
     with combinators; [
-      gui
-      gpu
+      # detect-lang script:
+      (add-pkg-deps [detectLang])
+      (fwd-env "CARGO_HOME")
+      (mkdir-readwrite (noescape "~/.local/share/cargo"))
+      (mkdir-readwrite (noescape "~/.cache/rust-script"))
 
       # mpv dirs:
       (readonly (noescape "~/.config/mpv"))
@@ -37,11 +40,8 @@
 
   permissions = combinators:
     with combinators; [
-      # detect-lang script:
-      (add-pkg-deps [detectLang])
-      (fwd-env "CARGO_HOME")
-      (mkdir-readwrite (noescape "~/.local/share/cargo"))
-      (mkdir-readwrite (noescape "~/.cache/rust-script"))
+      gui
+      gpu
 
       # yt-dlp dirs:
       (readonly (noescape "~/.config/yt-dlp"))

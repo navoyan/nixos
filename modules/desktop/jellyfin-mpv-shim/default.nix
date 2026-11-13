@@ -1,6 +1,7 @@
 {
   pkgs,
   lib,
+  localLib,
   config,
   ...
 }: let
@@ -26,17 +27,17 @@
     }
     "python -c '${printDefaultConf}' > $out";
 
-  jellyfinMpvShim = pkgs.writeShellApplication {
-    name = "jellyfin-mpv-shim";
-    text = ''
-      conf=~/.config/jellyfin-mpv-shim/conf.json
-      conf_generated=~/.config/jellyfin-mpv-shim/conf.generated.json
-      ${getExe pkgs.jq} --indent 4 -s '.[0] * .[1]' ${defaultConfFile} ${managedConfPath} > "$conf_generated"
-      cp "$conf_generated" "$conf"
+  prepareConf = pkgs.writeShellScript "jellyfin-mpv-shim-prepare-conf" ''
+    set -euo pipefail
 
-      exec ${getExe pkgs.jellyfin-mpv-shim} "$@"
-    '';
-  };
+    conf=~/.config/jellyfin-mpv-shim/conf.json
+    conf_generated=~/.config/jellyfin-mpv-shim/conf.generated.json
+    rm -f "$conf_generated"
+
+    ${getExe pkgs.jq} --indent 4 -s '.[0] * .[1]' ${defaultConfFile} ${managedConfPath} > "$conf_generated"
+    chmod a-w "$conf_generated"
+    install -m 644 "$conf_generated" "$conf"
+  '';
 in {
   imports = [
     ../mpv
@@ -45,11 +46,17 @@ in {
   my.jails.jellyfin-mpv-shim = {
     enable = true;
     bootstrapService.enable = false;
-    package = jellyfinMpvShim;
+    package = localLib.wrap.pkg pkgs.jellyfin-mpv-shim {
+      wrapperArgs = ["--run" prepareConf];
+    };
     inherit (config.my.jails.mpv) basePermissions;
     permissions = combinators:
       with combinators; [
+        gui
+        gpu
+
         network
+        fake-machine-id
 
         (add-pkg-deps [
           (pkgs.mpv.override {
