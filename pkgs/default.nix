@@ -6,6 +6,7 @@ in {
     mpv-mfpbar = mpvScripts.callPackage ./mpv/mfpbar.nix {};
     mpv-thumbyt = mpvScripts.callPackage ./mpv/thumbyt.nix {};
     apple-color-emoji = callPackage ./apple-color-emoji.nix {};
+    vds = callPackage ./vds.nix {};
   };
 
   overlay = final: prev: {
@@ -14,5 +15,11 @@ in {
       thumbyt = mfinal.callPackage ./mpv/thumbyt.nix {};
     });
     apple-color-emoji = final.callPackage ./apple-color-emoji.nix {};
+    vds = final.callPackage ./vds.nix {};
+    kernelPackagesExtensions =
+      prev.kernelPackagesExtensions
+      ++ [
+        (kfinal: _: {vds-hcd = kfinal.callPackage ./vds-hcd.nix {};})
+      ];
   };
 }

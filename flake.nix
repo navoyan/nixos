@@ -4,6 +4,7 @@
     output = file: import file inputs;
   in {
     inherit (output ./hosts) nixosConfigurations;
+    inherit (output ./modules/export) nixosModules;
     inherit (output ./overlays) overlays;
     inherit (output ./pkgs) packages;
     inherit (output ./shells) devShells;

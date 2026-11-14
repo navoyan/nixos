@@ -53,6 +53,7 @@
           ];
         }
         modulePresets.core.default
+        self.nixosModules.default
         ./${directory}/host.nix
       ];
     };
