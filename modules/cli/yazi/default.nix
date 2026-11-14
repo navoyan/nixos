@@ -20,7 +20,7 @@
 
   yazi = pkgs.yazi.override {
     _7zz = jail.bin "7zz" _7z _7zPermissions;
-    extraPackages = [pkgs.socat];
+    extraPackages = with pkgs; [socat exiftool];
   };
 in {
   environment.systemPackages =
