@@ -1,8 +1,9 @@
 {my, ...}: {
   imports = with my.modulePresets; [
+    hardware.airpods
     hardware.amdgpu
     hardware.bluetooth
-    hardware.airpods
+    hardware.dualsense
     hardware.voyager
     cli.default
     desktop.default

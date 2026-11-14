@@ -3,7 +3,9 @@
   pkgs,
   ...
 }: let
-  linuxPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto-zen4;
+  linuxPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto-zen4.extend (kfinal: _: {
+    vds-hcd = kfinal.callPackage ../../pkgs/vds-hcd.nix {inherit (pkgs) vds;};
+  });
 
   it87 = linuxPackages.it87.overrideAttrs (old: rec {
     version = "unstable-2026-10-07";
