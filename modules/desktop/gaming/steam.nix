@@ -9,14 +9,9 @@
 
   slsSteam = inputs.sls-steam.packages.${system}.sls-steam;
 
-  linuwuxVersion = "26.09.28.4";
-  linuwuxSo = pkgs.fetchurl {
-    url = "https://github.com/brcly/linuwux-runtime/releases/download/v${linuwuxVersion}/LinUwUx.so";
-    hash = "sha256-KvPM4ng4KHJoi4UkA/lrf6+Hdr1B2qLXW9RenYO5mtk=";
-  };
   linuwux = pkgs.writeShellScriptBin "linuwux" ''
     export PROTON_DISABLE_LSTEAMCLIENT=0
-    export LD_PRELOAD="${linuwuxSo}''${LD_PRELOAD:+:$LD_PRELOAD}"
+    export LD_PRELOAD="${inputs.linuwux}''${LD_PRELOAD:+:$LD_PRELOAD}"
     exec "$@"
   '';
 in {

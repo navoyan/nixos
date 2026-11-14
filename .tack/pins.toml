@@ -40,6 +40,12 @@ url = "github:Gerg-L/spicetify-nix"
 url = "github:AceSLS/SLSsteam"
 tag = "{version}"
 
+[inputs.linuwux]
+url = "https://github.com/brcly/linuwux-runtime/releases/download/{tag}/LinUwUx.so"
+type = "fixed"
+unpack = "file"
+tag = "v{version}"
+
 [inputs.sofka]
 url = "github:nklmilojevic/sofka"
 tag = "v{version}"
