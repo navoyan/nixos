@@ -1,6 +1,5 @@
 {
   nixpkgs,
-  jail-nix,
   self,
   ...
 } @ inputs: let
@@ -22,8 +21,8 @@
     directory,
     system,
   }: let
-    localLib = import ../lib {
-      inherit jail-nix;
+    lib = import ../lib {
+      inherit inputs;
       inherit
         (nixosSystem)
         pkgs
@@ -32,14 +31,17 @@
         ;
     };
 
+    my = {
+      inherit
+        lib
+        modulePresets
+        ;
+    };
+
     nixosSystem = nixpkgs.lib.nixosSystem {
       specialArgs = {
+        inherit inputs my;
         flake = self;
-        inherit
-          inputs
-          modulePresets
-          localLib
-          ;
       };
       modules = [
         {

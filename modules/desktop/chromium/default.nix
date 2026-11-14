@@ -1,6 +1,6 @@
 {
   pkgs,
-  localLib,
+  my,
   ...
 }: {
   my.jails.chromium = {
@@ -34,7 +34,7 @@
       ];
   };
 
-  my.outOfStoreSymlinks.data.applications = localLib.symlinks.mkSources "desktop/chromium" [
+  my.outOfStoreSymlinks.data.applications = my.lib.symlinks.mkSources "desktop/chromium" [
     "./google-meet.desktop"
   ];
 }

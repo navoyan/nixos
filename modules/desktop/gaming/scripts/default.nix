@@ -1,13 +1,13 @@
 {
   pkgs,
-  localLib,
   flake,
+  my,
   ...
 }: let
   scriptsDir = "~/nixos/modules/desktop/gaming/scripts";
 
   overlay = flake.overlays.depotdownloader;
-  depotDownloaderModJailed = localLib.jail.bin "DepotDownloaderMod" pkgs.depotdownloader (combinators:
+  depotDownloaderModJailed = my.lib.jail.bin "DepotDownloaderMod" pkgs.depotdownloader (combinators:
     with combinators; [
       network
 

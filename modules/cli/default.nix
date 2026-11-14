@@ -8,6 +8,7 @@
     eza
     fastfetch
     fd
+    ffmpeg
     gettext
     jq
     libnotify

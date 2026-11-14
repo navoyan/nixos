@@ -1,6 +1,6 @@
 {
   pkgs,
-  localLib,
+  my,
   ...
 }: let
   _7z = pkgs._7zip-zstd-rar;
@@ -10,10 +10,10 @@
     ];
   _7zJailedPackages =
     ["7z" "7za" "7zr" "7zz"]
-    |> map (bin: localLib.jail.pkg bin _7z _7zPermissions);
+    |> map (bin: my.lib.jail.pkg bin _7z _7zPermissions);
 
   yazi = pkgs.yazi.override {
-    _7zz = localLib.jail.bin "7zz" _7z _7zPermissions;
+    _7zz = my.lib.jail.bin "7zz" _7z _7zPermissions;
     extraPackages = [pkgs.socat];
   };
 in {
@@ -21,7 +21,7 @@ in {
     [yazi]
     ++ _7zJailedPackages;
 
-  my.outOfStoreSymlinks.config.yazi = localLib.symlinks.mkSources "cli/yazi" [
+  my.outOfStoreSymlinks.config.yazi = my.lib.symlinks.mkSources "cli/yazi" [
     "./yazi.toml"
     "./keymap.toml"
     "./theme.toml"

@@ -1,7 +1,7 @@
 {
   pkgs,
   lib,
-  localLib,
+  my,
   config,
   ...
 }: let
@@ -46,7 +46,7 @@ in {
   my.jails.jellyfin-mpv-shim = {
     enable = true;
     bootstrapService.enable = false;
-    package = localLib.wrap.pkg pkgs.jellyfin-mpv-shim {
+    package = my.lib.wrap.pkg pkgs.jellyfin-mpv-shim {
       wrapperArgs = ["--run" prepareConf];
     };
     inherit (config.my.jails.mpv) basePermissions;

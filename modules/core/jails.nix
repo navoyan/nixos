@@ -1,7 +1,7 @@
 {
   pkgs,
   lib,
-  localLib,
+  my,
   config,
   ...
 }: let
@@ -33,7 +33,7 @@
 
   # serves connections accepted on the jail socket:
   jailRx = jailName: jailCfg:
-    localLib.jail.bin "${jailName}-jail-rx" jailCfg.package (
+    my.lib.jail.bin "${jailName}-jail-rx" jailCfg.package (
       combinators:
         (jailCfg.allPermissions combinators)
         ++ (with combinators; [
@@ -125,7 +125,7 @@ in {
                   jailCfg.package
                 ];
               }
-            else (localLib.jail.pkg jailName jailCfg.package jailCfg.allPermissions)
+            else (my.lib.jail.pkg jailName jailCfg.package jailCfg.allPermissions)
         ));
 
     systemd.user.sockets =

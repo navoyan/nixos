@@ -1,7 +1,7 @@
 {
   pkgs,
   flake,
-  localLib,
+  my,
   ...
 }: let
   thirdPartyScripts = {
@@ -83,7 +83,7 @@ in {
       ];
   };
 
-  my.outOfStoreSymlinks.config.qutebrowser = localLib.symlinks.mkSources "desktop/qutebrowser" [
+  my.outOfStoreSymlinks.config.qutebrowser = my.lib.symlinks.mkSources "desktop/qutebrowser" [
     "./config.py"
     "./tokyonight.py"
     "./jseval"

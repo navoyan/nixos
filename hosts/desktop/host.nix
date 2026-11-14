@@ -1,5 +1,5 @@
-{modulePresets, ...}: {
-  imports = with modulePresets; [
+{my, ...}: {
+  imports = with my.modulePresets; [
     hardware.amdgpu
     hardware.bluetooth
     hardware.airpods

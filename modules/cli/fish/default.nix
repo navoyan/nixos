@@ -1,6 +1,6 @@
 {
   pkgs,
-  localLib,
+  my,
   ...
 }: {
   programs.fish.enable = true;
@@ -9,7 +9,7 @@
     kubectl
   ];
 
-  my.outOfStoreSymlinks.config.fish = localLib.symlinks.mkSources "cli/fish" [
+  my.outOfStoreSymlinks.config.fish = my.lib.symlinks.mkSources "cli/fish" [
     "./config.fish"
     "./user_functions"
     "./themes"

@@ -1,14 +1,14 @@
 {
   config,
+  inputs,
   pkgs,
   lib,
-  jail-nix,
   ...
 } @ args: let
   inherit (lib) getExe;
   inherit (lib.attrsets) mergeAttrsList;
 in rec {
-  bin = jail-nix.lib.extend {
+  bin = inputs.jail-nix.lib.extend {
     inherit pkgs;
 
     additionalCombinators = builtinCombinators:

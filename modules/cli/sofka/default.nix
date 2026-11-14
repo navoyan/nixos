@@ -1,6 +1,6 @@
 {
-  flake,
   pkgs,
+  flake,
   ...
 }: {
   nixpkgs.overlays = [flake.overlays.sofka];

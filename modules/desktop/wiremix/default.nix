@@ -1,15 +1,15 @@
 {
   pkgs,
-  localLib,
+  my,
   ...
 }: {
   environment.systemPackages = [pkgs.wiremix];
 
   my.outOfStoreSymlinks = {
-    config.wiremix = localLib.symlinks.mkSources "desktop/wiremix" [
+    config.wiremix = my.lib.symlinks.mkSources "desktop/wiremix" [
       "./wiremix.toml"
     ];
-    data.applications = localLib.symlinks.mkSources "desktop/wiremix" [
+    data.applications = my.lib.symlinks.mkSources "desktop/wiremix" [
       "./wiremix.desktop"
     ];
   };

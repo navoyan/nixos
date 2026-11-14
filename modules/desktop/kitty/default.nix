@@ -1,6 +1,6 @@
 {
   pkgs,
-  localLib,
+  my,
   ...
 }: {
   environment.systemPackages = [pkgs.kitty];
@@ -14,7 +14,7 @@
     TERMINAL = "kitty";
   };
 
-  my.outOfStoreSymlinks.config.kitty = localLib.symlinks.mkSources "desktop/kitty" [
+  my.outOfStoreSymlinks.config.kitty = my.lib.symlinks.mkSources "desktop/kitty" [
     "./kitty.conf"
     "./tokyonight.conf"
     "./tab_bar.py"
