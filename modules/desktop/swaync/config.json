@@ -1,5 +1,5 @@
 {
-    "$schema": "/etc/xdg/swaync/configSchema.json",
+    "$schema": "/run/current-system/sw/etc/xdg/swaync/configSchema.json",
     "positionX": "right",
     "positionY": "top",
     "control-center-width": 450,
@@ -38,8 +38,8 @@
             "max": 100,
             "min_limit": 1,
             "max_limit": 100,
-            "cmd_setter": "~/.config/swaync/backlight.sh set $value",
-            "cmd_getter": "~/.config/swaync/backlight.sh get"
+            "cmd_setter": "swaync-backlight set $value",
+            "cmd_getter": "swaync-backlight get"
         },
         "mpris": {
             "loop-carousel": true,
