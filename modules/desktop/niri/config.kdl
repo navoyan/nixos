@@ -63,10 +63,12 @@ output "DP-1" {
     position x=0 y=0
 }
 
+// Virtual output to use with Sunshine streaming.
+// Usage: `niri msg output HDMI-A-1 on`
 output "HDMI-A-1" {
     off
     mode "2560x1440@60"
-    position x=3840 y=0
+    position x=9999 y=9999
 }
 
 cursor {
@@ -424,6 +426,8 @@ binds {
     Mod+Ctrl+7 { move-window-to-workspace 7; }
     Mod+Ctrl+8 { move-window-to-workspace 8; }
     Mod+Ctrl+9 { move-window-to-workspace 9; }
+
+    Mod+Ctrl+Backslash { move-window-to-monitor "HDMI-A-1"; }
 
     // The following binds move the focused window in and out of a column.
     // If the window is alone, they will consume it into the nearby column to the side.
