@@ -44,6 +44,9 @@ in {
     depotdownloader = mkOverlay [
       ./depotdownloader.nix
     ];
+    xdg-dbus-proxy-unicast-signals = mkOverlay [
+      ./xdg-dbus-proxy-unicast-signals/overlay.nix
+    ];
     sofka = composeManyExtensions [
       inputs.sofka.overlays.default
       (mkOverlay [./sofka.nix])

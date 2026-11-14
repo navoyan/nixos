@@ -9,7 +9,8 @@
   inherit (lib.attrsets) mergeAttrsList;
 in rec {
   bin = inputs.jail-nix.lib.extend {
-    inherit pkgs;
+    # see: overlays/xdg-dbus-proxy-unicast-signals/overlay.nix
+    pkgs = pkgs // {xdg-dbus-proxy = pkgs.xdg-dbus-proxy-unicast-signals;};
 
     additionalCombinators = builtinCombinators:
       import ./combinators

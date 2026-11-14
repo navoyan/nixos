@@ -47,7 +47,10 @@
         {
           networking.hostName = hostName;
           nixpkgs.hostPlatform = system;
-          nixpkgs.overlays = [self.overlays.default];
+          nixpkgs.overlays = with self.overlays; [
+            default
+            xdg-dbus-proxy-unicast-signals
+          ];
         }
         modulePresets.core.default
         ./${directory}/host.nix

@@ -1,6 +1,6 @@
 /*
 Qt-6.10.2 dependencies.
-ISSUE: https://github.com/qutebrowser/qutebrowser/issues/8925
+See: https://github.com/qutebrowser/qutebrowser/issues/8925
 */
 {pkgsQt610, ...}: {
   qutebrowser = pkgsQt610.qutebrowser.overrideAttrs (old: {
