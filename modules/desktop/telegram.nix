@@ -16,6 +16,7 @@
 
         (mkdir-readonly (noescape "~/Downloads"))
         (mkdir-readonly (noescape "~/Pictures"))
+        (mkdir-readonly (noescape "~/Documents"))
       ];
   };
 }
