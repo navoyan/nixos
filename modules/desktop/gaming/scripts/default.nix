@@ -4,10 +4,12 @@
   my,
   ...
 }: let
+  inherit (my.lib) jail;
+
   scriptsDir = "~/nixos/modules/desktop/gaming/scripts";
 
   overlay = flake.overlays.depotdownloader;
-  depotDownloaderModJailed = my.lib.jail.bin "DepotDownloaderMod" pkgs.depotdownloader (combinators:
+  depotDownloaderModJailed = jail.bin "DepotDownloaderMod" pkgs.depotdownloader (combinators:
     with combinators; [
       network
 

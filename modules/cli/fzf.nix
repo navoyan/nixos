@@ -2,22 +2,25 @@
   pkgs,
   lib,
   ...
-}: {
+}: let
+  inherit (lib.cli) toCommandLineShellGNU;
+  inherit (lib.attrsets) mapAttrsToList;
+in {
   environment.systemPackages = [pkgs.fzf];
 
   programs.fzf.keybindings = true;
 
   hj.environment.sessionVariables = {
     FZF_DEFAULT_COMMAND = let
-      fdArgs = lib.cli.toCommandLineShellGNU {} {
+      fdArgs = toCommandLineShellGNU {} {
         type = "file";
         hidden = true;
         exclude = ["drive_c" ".hidden"];
       };
     in "fd ${fdArgs}";
 
-    FZF_DEFAULT_OPTS = lib.cli.toCommandLineShellGNU {} (let
-      mkMappings = lib.mapAttrsToList (key: value: "${key}:${value}");
+    FZF_DEFAULT_OPTS = toCommandLineShellGNU {} (let
+      mkMappings = mapAttrsToList (key: value: "${key}:${value}");
     in {
       layout = "reverse";
       info = "inline-right";

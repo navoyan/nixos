@@ -26,7 +26,7 @@ in
     hookModule = {config, ...}: {
       options = {
         excludeGlobs = mkOption {
-          type = types.listOf types.str;
+          type = with types; listOf str;
           default = [];
         };
       };

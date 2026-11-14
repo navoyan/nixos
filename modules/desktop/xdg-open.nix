@@ -3,12 +3,14 @@
   lib,
   ...
 }: let
+  inherit (lib) getExe hiPrio;
+
   handlrXdgOpen = pkgs.writeShellScriptBin "xdg-open" ''
-    exec ${lib.getExe pkgs.handlr-regex} open "$@"
+    exec ${getExe pkgs.handlr-regex} open "$@"
   '';
 in {
   environment.systemPackages = [
     pkgs.handlr-regex
-    (lib.hiPrio handlrXdgOpen)
+    (hiPrio handlrXdgOpen)
   ];
 }

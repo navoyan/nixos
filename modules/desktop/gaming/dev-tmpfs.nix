@@ -3,6 +3,8 @@
   lib,
   ...
 }: let
+  inherit (lib) getExe;
+
   accessGroup = "gaming-dev-tmpfs";
   mountDir = "/run/jail/gaming/dev";
 in {
@@ -43,7 +45,7 @@ in {
   };
 
   services.udev.extraRules = let
-    mirror = lib.getExe (pkgs.writeShellApplication {
+    mirror = getExe (pkgs.writeShellApplication {
       name = "jail-gaming-dev-mirror";
       inheritPath = false;
       runtimeInputs = [pkgs.coreutils];

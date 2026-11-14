@@ -2,14 +2,16 @@
   pkgs,
   lib,
   ...
-}: {
+}: let
+  inherit (lib) generators;
+in {
   environment.systemPackages = [
     pkgs.adwaita-icon-theme
   ];
 
   hj.xdg.data.files = {
     "icons/default/index.theme" = {
-      generator = lib.generators.toINI {};
+      generator = generators.toINI {};
       value = {
         "Icon Theme".Inherits = "Adwaita";
       };

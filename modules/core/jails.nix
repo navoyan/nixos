@@ -24,6 +24,7 @@
     mapAttrsToList
     ;
   inherit (lib.strings) toLower;
+  inherit (my.lib) jail;
 
   # connects to the jail socket and passes argv
   jailTx = jailName:
@@ -33,7 +34,7 @@
 
   # serves connections accepted on the jail socket:
   jailRx = jailName: jailCfg:
-    my.lib.jail.bin "${jailName}-jail-rx" jailCfg.package (
+    jail.bin "${jailName}-jail-rx" jailCfg.package (
       combinators:
         (jailCfg.allPermissions combinators)
         ++ (with combinators; [
@@ -125,7 +126,7 @@ in {
                   jailCfg.package
                 ];
               }
-            else (my.lib.jail.pkg jailName jailCfg.package jailCfg.allPermissions)
+            else (jail.pkg jailName jailCfg.package jailCfg.allPermissions)
         ));
 
     systemd.user.sockets =

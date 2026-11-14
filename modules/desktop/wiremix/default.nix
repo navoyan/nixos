@@ -2,14 +2,16 @@
   pkgs,
   my,
   ...
-}: {
+}: let
+  inherit (my.lib) symlinks;
+in {
   environment.systemPackages = [pkgs.wiremix];
 
   my.outOfStoreSymlinks = {
-    config.wiremix = my.lib.symlinks.mkSources "desktop/wiremix" [
+    config.wiremix = symlinks.mkSources "desktop/wiremix" [
       "./wiremix.toml"
     ];
-    data.applications = my.lib.symlinks.mkSources "desktop/wiremix" [
+    data.applications = symlinks.mkSources "desktop/wiremix" [
       "./wiremix.desktop"
     ];
   };

@@ -4,12 +4,9 @@
   inputs,
   ...
 }: let
-  inherit
-    (lib)
-    types
-    genAttrs
-    ;
+  inherit (lib) types;
   inherit (lib.options) mkOption;
+  inherit (lib.attrsets) genAttrs;
 in {
   imports = [
     inputs.hjem.nixosModules.default
@@ -18,7 +15,7 @@ in {
 
   options = {
     my.manageHomeForUsers = mkOption {
-      type = types.listOf types.str;
+      type = with types; listOf str;
     };
 
     hj = mkOption {

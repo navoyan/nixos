@@ -5,10 +5,7 @@
   ...
 } @ inputs: let
   inherit (nixpkgs) lib;
-  inherit
-    (lib.fixedPoints)
-    composeManyExtensions
-    ;
+  inherit (lib.fixedPoints) composeManyExtensions;
 
   mkOverlay = files: final: prev: let
     pkgsQt610 = import nixpkgs-qt6-10 {

@@ -5,6 +5,8 @@
   lib,
   ...
 }: let
+  inherit (lib) hiPrio;
+
   system = pkgs.stdenv.hostPlatform.system;
 
   slsSteam = inputs.sls-steam.packages.${system}.sls-steam;
@@ -30,7 +32,7 @@ in {
     };
     extraPackages = with pkgs; [
       adwaita-icon-theme
-      (lib.hiPrio (
+      (hiPrio (
         pkgs.writeShellScriptBin "xdg-open" ''
           exec xdgopenchannel "$1"
         ''

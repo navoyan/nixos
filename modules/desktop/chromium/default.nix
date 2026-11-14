@@ -2,7 +2,9 @@
   pkgs,
   my,
   ...
-}: {
+}: let
+  inherit (my.lib) symlinks;
+in {
   my.jails.chromium = {
     enable = true;
     bootstrapService.enable = true;
@@ -34,7 +36,7 @@
       ];
   };
 
-  my.outOfStoreSymlinks.data.applications = my.lib.symlinks.mkSources "desktop/chromium" [
+  my.outOfStoreSymlinks.data.applications = symlinks.mkSources "desktop/chromium" [
     "./google-meet.desktop"
   ];
 }

@@ -2,7 +2,9 @@
   pkgs,
   my,
   ...
-}: {
+}: let
+  inherit (my.lib) symlinks;
+in {
   environment.systemPackages = [pkgs.kitty];
 
   xdg.terminal-exec = {
@@ -14,7 +16,7 @@
     TERMINAL = "kitty";
   };
 
-  my.outOfStoreSymlinks.config.kitty = my.lib.symlinks.mkSources "desktop/kitty" [
+  my.outOfStoreSymlinks.config.kitty = symlinks.mkSources "desktop/kitty" [
     "./kitty.conf"
     "./tokyonight.conf"
     "./tab_bar.py"

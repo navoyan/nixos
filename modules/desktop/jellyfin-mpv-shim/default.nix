@@ -6,6 +6,7 @@
   ...
 }: let
   inherit (lib) getExe;
+  inherit (my.lib) wrap;
 
   managedConfPath = "~/nixos/modules/desktop/jellyfin-mpv-shim/conf.json";
 
@@ -46,7 +47,7 @@ in {
   my.jails.jellyfin-mpv-shim = {
     enable = true;
     bootstrapService.enable = false;
-    package = my.lib.wrap.pkg pkgs.jellyfin-mpv-shim {
+    package = wrap.pkg pkgs.jellyfin-mpv-shim {
       wrapperArgs = ["--run" prepareConf];
     };
     inherit (config.my.jails.mpv) basePermissions;

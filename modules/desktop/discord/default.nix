@@ -1,4 +1,6 @@
-{my, ...}: {
+{my, ...}: let
+  inherit (my.lib) symlinks;
+in {
   my.jails.vesktop = {
     enable = true;
     bootstrapService.enable = true;
@@ -25,7 +27,7 @@
       ];
   };
 
-  my.outOfStoreSymlinks.config.vesktop = my.lib.symlinks.mkSources "desktop/discord" [
+  my.outOfStoreSymlinks.config.vesktop = symlinks.mkSources "desktop/discord" [
     "./themes"
     "./settings.json"
   ];

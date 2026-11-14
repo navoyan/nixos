@@ -4,6 +4,8 @@
   my,
   ...
 }: let
+  inherit (my.lib) symlinks;
+
   thirdPartyScripts = {
     ytAdsBypass = pkgs.fetchurl {
       url = "https://update.greasyfork.org/scripts/575941/1836031/YouTube%20Ads-Bypass.user.js";
@@ -83,7 +85,7 @@ in {
       ];
   };
 
-  my.outOfStoreSymlinks.config.qutebrowser = my.lib.symlinks.mkSources "desktop/qutebrowser" [
+  my.outOfStoreSymlinks.config.qutebrowser = symlinks.mkSources "desktop/qutebrowser" [
     "./config.py"
     "./tokyonight.py"
     "./jseval"

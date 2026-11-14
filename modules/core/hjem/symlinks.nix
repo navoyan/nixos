@@ -5,10 +5,17 @@
 }: let
   inherit
     (lib)
-    genAttrs
     isString
-    mkOption
     types
+    ;
+  inherit (lib.options) mkOption;
+  inherit (lib.strings) concatStringsSep;
+  inherit (lib.path) subpath;
+  inherit
+    (lib.attrsets)
+    genAttrs
+    mergeAttrsList
+    concatMapAttrs
     ;
 
   xdgDirs = ["config" "data" "cache" "state"];
@@ -29,12 +36,11 @@ in {
   options = {
     my.outOfStoreSymlinks = genAttrs xdgDirs (_:
       mkOption {
-        type = types.attrsOf (
-          types.oneOf [
-            types.str
-            (types.listOf baseRelType)
-          ]
-        );
+        type = with types;
+          attrsOf (oneOf [
+            str
+            (listOf baseRelType)
+          ]);
         default = {};
       });
   };
@@ -45,7 +51,7 @@ in {
     xdg = genAttrs xdgDirs (xdgDir: {
       files =
         cfg.${xdgDir}
-        |> lib.concatMapAttrs (
+        |> concatMapAttrs (
           targetBase: source:
             if isString source
             then {
@@ -57,7 +63,7 @@ in {
               source
               |> map (
                 file: let
-                  normalize = path: lib.concatStringsSep "/" (lib.path.subpath.components path);
+                  normalize = path: concatStringsSep "/" (subpath.components path);
                   target = normalize "${targetBase}/${file.rel}";
                   source = normalize "${file.base}/${file.rel}";
                 in {
@@ -66,7 +72,7 @@ in {
                   };
                 }
               )
-              |> lib.mergeAttrsList
+              |> mergeAttrsList
         );
     });
   };
