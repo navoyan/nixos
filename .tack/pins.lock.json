@@ -97,11 +97,11 @@
     "type": "github",
     "owner": "AceSLS",
     "repo": "SLSsteam",
-    "rev": "f1a4568c249c2e3863ab865b9e054c47fb87a3b9",
-    "narHash": "sha256-5mwT85v34CnSY/CisWAcFYYcRtZn16goMoOJQQlm5B4=",
-    "lastModified": 1793962943,
-    "tag": "20261106120254",
-    "version": "20261106120254"
+    "rev": "4dec48344c51c8180a23d914e5522a9ab0ed70f5",
+    "narHash": "sha256-lNs5Vm8eR3+10Jt4V/8J2y/InWnlqXCfnWAn0uNjOKY=",
+    "lastModified": 1794504979,
+    "tag": "20261112130346",
+    "version": "20261112130346"
   },
   "sofka": {
     "type": "github",
