@@ -5,7 +5,10 @@
   };
   hardware.amdgpu.overdrive.enable = true;
 
-  programs.coolercontrol.enable = true;
+  programs.coolercontrol = {
+    enable = true;
+    plugins.coolerdash.enable = true;
+  };
 
   environment.systemPackages = with pkgs; [
     nvtopPackages.amd

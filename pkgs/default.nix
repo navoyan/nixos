@@ -6,6 +6,7 @@ in {
     mpv-mfpbar = mpvScripts.callPackage ./mpv/mfpbar.nix {};
     mpv-thumbyt = mpvScripts.callPackage ./mpv/thumbyt.nix {};
     apple-color-emoji = callPackage ./apple-color-emoji.nix {};
+    coolerdash = callPackage ./coolerdash.nix {};
     vds = callPackage ./vds.nix {};
   };
 
@@ -15,6 +16,7 @@ in {
       thumbyt = mfinal.callPackage ./mpv/thumbyt.nix {};
     });
     apple-color-emoji = final.callPackage ./apple-color-emoji.nix {};
+    coolerdash = final.callPackage ./coolerdash.nix {};
     vds = final.callPackage ./vds.nix {};
     kernelPackagesExtensions =
       prev.kernelPackagesExtensions
