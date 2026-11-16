@@ -41,6 +41,9 @@ in {
     depotdownloader = mkOverlay [
       ./depotdownloader.nix
     ];
+    nerd-fonts-jetbrains-mono = mkOverlay [
+      ./nerd-fonts-jetbrains-mono.nix
+    ];
     xdg-dbus-proxy-unicast-signals = mkOverlay [
       ./xdg-dbus-proxy-unicast-signals/overlay.nix
     ];

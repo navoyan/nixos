@@ -1,4 +1,10 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  flake,
+  ...
+}: {
+  nixpkgs.overlays = [flake.overlays.nerd-fonts-jetbrains-mono];
+
   fonts = {
     packages = with pkgs; [
       noto-fonts
