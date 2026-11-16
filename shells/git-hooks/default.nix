@@ -13,11 +13,18 @@
     mkDefault
     mkForce
     mkIf
+    readFile
     types
     ;
   inherit (lib.options) mkOption;
 
   system = pkgs.stdenv.hostPlatform.system;
+
+  checkRepoPathsExist = pkgs.writeShellApplication {
+    name = "check-repo-paths-exist";
+    runtimeInputs = [pkgs.ripgrep];
+    text = readFile ./check-repo-paths-exist.sh;
+  };
 in
   inputs.git-hooks.lib.${system}.run {
     src = ../.;
@@ -50,6 +57,14 @@ in
         excludeGlobs = ["modules/desktop/gtk/themes/TokyoNight/**"];
       };
       typos.enable = true;
+      check-repo-paths-exist = {
+        enable = true;
+        package = checkRepoPathsExist;
+        entry = getExe checkRepoPathsExist;
+        # a referenced file may be removed without touching the referencing one:
+        pass_filenames = false;
+        always_run = true;
+      };
 
       ## nix
       nix-flake-check = {
