@@ -19,26 +19,43 @@ in {
     }
   ];
 
-  systemd.tmpfiles.rules = [
-    "d ${mountDir}/.stage 0700 root root -"
+  systemd.tmpfiles.settings.dev-tmpfs = let
+    dir = mode: {
+      d = {
+        inherit mode;
+        user = "root";
+        group = "root";
+      };
+    };
+    chr = device: {
+      "c+" = {
+        mode = "0666";
+        user = "root";
+        group = "root";
+        argument = device;
+      };
+    };
+    link = target: {"L+".argument = target;};
+  in {
+    "${mountDir}/.stage" = dir "0700";
 
-    "d ${mountDir}/dri   0755 root root -"
-    "d ${mountDir}/input 0755 root root -"
+    "${mountDir}/dri" = dir "0755";
+    "${mountDir}/input" = dir "0755";
     # mountpoint only, the jail mounts its own private tmpfs on it:
-    "d ${mountDir}/shm   1777 root root -"
+    "${mountDir}/shm" = dir "1777";
 
-    "c+ ${mountDir}/null    0666 root root - 1:3"
-    "c+ ${mountDir}/zero    0666 root root - 1:5"
-    "c+ ${mountDir}/full    0666 root root - 1:7"
-    "c+ ${mountDir}/random  0666 root root - 1:8"
-    "c+ ${mountDir}/urandom 0666 root root - 1:9"
-    "c+ ${mountDir}/tty     0666 root root - 5:0"
+    "${mountDir}/null" = chr "1:3";
+    "${mountDir}/zero" = chr "1:5";
+    "${mountDir}/full" = chr "1:7";
+    "${mountDir}/random" = chr "1:8";
+    "${mountDir}/urandom" = chr "1:9";
+    "${mountDir}/tty" = chr "5:0";
 
-    "L+ ${mountDir}/fd     - - - - /proc/self/fd"
-    "L+ ${mountDir}/stdin  - - - - /proc/self/fd/0"
-    "L+ ${mountDir}/stdout - - - - /proc/self/fd/1"
-    "L+ ${mountDir}/stderr - - - - /proc/self/fd/2"
-  ];
+    "${mountDir}/fd" = link "/proc/self/fd";
+    "${mountDir}/stdin" = link "/proc/self/fd/0";
+    "${mountDir}/stdout" = link "/proc/self/fd/1";
+    "${mountDir}/stderr" = link "/proc/self/fd/2";
+  };
 
   users.groups = {
     ${accessGroup} = {};

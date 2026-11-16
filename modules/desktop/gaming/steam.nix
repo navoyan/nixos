@@ -70,7 +70,7 @@ in {
         })
 
         # `/dev` directory with limited devices, managed by custom udev rules.
-        # See: ./gaming-dev-tmpfs.nix
+        # See: ./dev-tmpfs.nix
         (unsafe-dev-bind "/run/jail/gaming/dev" "/dev")
         (tmpfs "/dev/shm")
 
