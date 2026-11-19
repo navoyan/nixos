@@ -5,6 +5,8 @@
     hardware.bluetooth
     hardware.dualsense
     hardware.voyager
+    core.podman
+    core.minikube
     cli.default
     desktop.default
     desktop.gaming

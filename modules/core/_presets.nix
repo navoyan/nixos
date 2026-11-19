@@ -2,7 +2,6 @@
   default = [
     ./hjem
     ./nix
-    ./virtualisation
 
     ./boot.nix
     ./compatibility.nix
@@ -14,4 +13,6 @@
     ./tack.nix
     ./xdg.nix
   ];
+  podman = [./virtualisation/podman.nix];
+  minikube = [./virtualisation/minikube.nix];
 }
