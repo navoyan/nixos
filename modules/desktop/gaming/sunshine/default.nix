@@ -11,7 +11,7 @@ in {
     "HDMI-A-1".mode = "2560x1440@60e";
   };
 
-  my.outOfStoreSymlinks.config.sunshine = symlinks.mkSources "desktop/gaming/sunshine" [
+  my.outOfStoreSymlinks.config.sunshine = symlinks.sources "desktop/gaming/sunshine" [
     "./sunshine.conf"
   ];
 }

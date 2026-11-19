@@ -85,7 +85,7 @@ in {
       ];
   };
 
-  my.outOfStoreSymlinks.config.qutebrowser = symlinks.mkSources "desktop/qutebrowser" [
+  my.outOfStoreSymlinks.config.qutebrowser = symlinks.sources "desktop/qutebrowser" [
     "./config.py"
     "./tokyonight.py"
     "./jseval"

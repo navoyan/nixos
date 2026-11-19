@@ -27,7 +27,7 @@ in {
       ];
   };
 
-  my.outOfStoreSymlinks.config.vesktop = symlinks.mkSources "desktop/discord" [
+  my.outOfStoreSymlinks.config.vesktop = symlinks.sources "desktop/discord" [
     "./themes"
     "./settings.json"
   ];

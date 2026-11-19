@@ -16,7 +16,7 @@ in {
     TERMINAL = "kitty";
   };
 
-  my.outOfStoreSymlinks.config.kitty = symlinks.mkSources "desktop/kitty" [
+  my.outOfStoreSymlinks.config.kitty = symlinks.sources "desktop/kitty" [
     "./kitty.conf"
     "./tokyonight.conf"
     "./tab_bar.py"

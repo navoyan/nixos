@@ -36,7 +36,7 @@ in {
       ];
   };
 
-  my.outOfStoreSymlinks.data.applications = symlinks.mkSources "desktop/chromium" [
+  my.outOfStoreSymlinks.data.applications = symlinks.sources "desktop/chromium" [
     "./google-meet.desktop"
   ];
 }

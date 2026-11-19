@@ -8,10 +8,10 @@ in {
   environment.systemPackages = [pkgs.wiremix];
 
   my.outOfStoreSymlinks = {
-    config.wiremix = symlinks.mkSources "desktop/wiremix" [
+    config.wiremix = symlinks.sources "desktop/wiremix" [
       "./wiremix.toml"
     ];
-    data.applications = symlinks.mkSources "desktop/wiremix" [
+    data.applications = symlinks.sources "desktop/wiremix" [
       "./wiremix.desktop"
     ];
   };

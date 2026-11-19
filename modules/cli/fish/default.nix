@@ -11,7 +11,7 @@ in {
     kubectl
   ];
 
-  my.outOfStoreSymlinks.config.fish = symlinks.mkSources "cli/fish" [
+  my.outOfStoreSymlinks.config.fish = symlinks.sources "cli/fish" [
     "./config.fish"
     "./user_functions"
     "./themes"

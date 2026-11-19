@@ -6,7 +6,7 @@ in {
     lfs.enable = true;
   };
 
-  my.outOfStoreSymlinks.config.git = symlinks.mkSources "cli/git" [
+  my.outOfStoreSymlinks.config.git = symlinks.sources "cli/git" [
     "./config"
   ];
 }

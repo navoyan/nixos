@@ -27,7 +27,7 @@ in {
     [yazi]
     ++ _7zJailedPackages;
 
-  my.outOfStoreSymlinks.config.yazi = symlinks.mkSources "cli/yazi" [
+  my.outOfStoreSymlinks.config.yazi = symlinks.sources "cli/yazi" [
     "./yazi.toml"
     "./keymap.toml"
     "./theme.toml"
