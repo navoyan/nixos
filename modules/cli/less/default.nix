@@ -1,5 +1,5 @@
 {
-  hj.environment.sessionVariables = {
+  my.hjem.environment.sessionVariables = {
     LESSHISTFILE = "$HOME/.local/state/lesshst";
   };
 

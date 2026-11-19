@@ -29,13 +29,13 @@
 
   my.outOfStoreSymlinks.config.nvim = "cli/nvim";
 
-  hj.environment.sessionVariables = {
+  my.hjem.environment.sessionVariables = {
     EDITOR = "nvim";
     VISUAL = "nvim";
     SUDO_EDITOR = "nvim";
   };
 
-  hj.xdg.mime-apps = {
+  my.hjem.xdg.mime-apps = {
     added-associations = {
       "application/json" = "nvim.desktop";
     };

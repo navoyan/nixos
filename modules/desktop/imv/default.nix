@@ -17,7 +17,7 @@
 
   my.outOfStoreSymlinks.config.imv = "desktop/imv";
 
-  hj.xdg.mime-apps = {
+  my.hjem.xdg.mime-apps = {
     added-associations = {
       "image/*" = "imv.desktop";
     };

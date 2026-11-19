@@ -3,7 +3,7 @@
 
   environment.systemPackages = [pkgs.xwayland-satellite];
 
-  hj.environment.sessionVariables = {
+  my.hjem.environment.sessionVariables = {
     NIXOS_OZONE_WL = "1";
   };
 

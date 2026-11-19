@@ -36,7 +36,7 @@ in {
     pickwall
   ];
 
-  hj.environment.sessionVariables = {
+  my.hjem.environment.sessionVariables = {
     AWWW_TRANSITION = "any";
     AWWW_TRANSITION_FPS = "180";
   };

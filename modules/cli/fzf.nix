@@ -10,7 +10,7 @@ in {
 
   programs.fzf.keybindings = true;
 
-  hj.environment.sessionVariables = {
+  my.hjem.environment.sessionVariables = {
     FZF_DEFAULT_COMMAND = let
       fdArgs = toCommandLineShellGNU {} {
         type = "file";

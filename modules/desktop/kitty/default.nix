@@ -12,7 +12,7 @@ in {
     settings.default = ["kitty.desktop"];
   };
 
-  hj.environment.sessionVariables = {
+  my.hjem.environment.sessionVariables = {
     TERMINAL = "kitty";
   };
 

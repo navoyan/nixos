@@ -13,7 +13,7 @@
     kdePackages.breeze-icons
   ];
 
-  hj.environment.sessionVariables = {
+  my.hjem.environment.sessionVariables = {
     QT_QPA_PLATFORM = "wayland";
     QT_QPA_PLATFORMTHEME = "qt6ct";
   };

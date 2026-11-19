@@ -93,12 +93,12 @@ in {
     "./greasemonkey"
   ];
 
-  hj.xdg.data.files = {
+  my.hjem.xdg.data.files = {
     "qutebrowser/greasemonkey/yt_ads_bypass.js".source = thirdPartyScripts.ytAdsBypass;
     "qutebrowser/greasemonkey/yt_shorts_blocker.js".source = thirdPartyScripts.ytShortsBlocker;
   };
 
-  hj.xdg.mime-apps = {
+  my.hjem.xdg.mime-apps = {
     added-associations = {
       "x-scheme-handler/chrome" = "org.qutebrowser.qutebrowser.desktop";
       "x-scheme-handler/mailto" = "org.qutebrowser.qutebrowser.desktop";

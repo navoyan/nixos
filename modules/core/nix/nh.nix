@@ -1,7 +1,7 @@
 {
   programs.nh.enable = true;
 
-  hj = {config, ...}: {
+  my.hjem = {config, ...}: {
     environment.sessionVariables = {
       NH_FLAKE = "${config.directory}/nixos";
     };

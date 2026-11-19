@@ -36,7 +36,7 @@ in {
     "./plugins/confirm-paste-force.yazi"
   ];
 
-  hj.xdg.mime-apps = {
+  my.hjem.xdg.mime-apps = {
     added-associations = {
       "folder/local" = "yazi.desktop";
     };

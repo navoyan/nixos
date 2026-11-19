@@ -105,7 +105,7 @@ in {
       ];
   };
 
-  hj = {config, ...}: {
+  my.hjem = {config, ...}: {
     files = {
       "Steam".source = "${config.directory}/.local/share/Steam";
     };

@@ -1,5 +1,5 @@
 {
-  hj.environment.sessionVariables = {
+  my.hjem.environment.sessionVariables = {
     GTK_THEME = "TokyoNight";
   };
 

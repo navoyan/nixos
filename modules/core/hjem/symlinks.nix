@@ -45,7 +45,7 @@ in {
       });
   };
 
-  config.hj = {config, ...}: let
+  config.my.hjem = {config, ...}: let
     symlinkSourceBase = "${config.directory}/nixos/modules";
   in {
     xdg = genAttrs xdgDirs (xdgDir: {

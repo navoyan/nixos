@@ -9,7 +9,7 @@ in {
     pkgs.adwaita-icon-theme
   ];
 
-  hj.xdg.data.files = {
+  my.hjem.xdg.data.files = {
     "icons/default/index.theme" = {
       generator = generators.toINI {};
       value = {

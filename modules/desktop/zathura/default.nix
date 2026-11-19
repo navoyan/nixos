@@ -21,7 +21,7 @@
 
   my.outOfStoreSymlinks.config.zathura = "desktop/zathura";
 
-  hj.xdg.mime-apps.default-applications = {
+  my.hjem.xdg.mime-apps.default-applications = {
     "application/pdf" = "org.pwmt.zathura.desktop";
   };
 }
