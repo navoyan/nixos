@@ -7,8 +7,8 @@
   };
 
   networking.nameservers = [
-    "1.1.1.1"
-    "1.0.0.1"
+    "9.9.9.9"
+    "149.112.112.112"
   ];
 
   services.resolved = {
@@ -18,8 +18,8 @@
       Domains = ["~."];
       DNSOverTLS = "true";
       FallbackDNS = [
-        "1.1.1.1"
-        "1.0.0.1"
+        "9.9.9.9"
+        "149.112.112.112"
       ];
     };
   };
