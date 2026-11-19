@@ -62,14 +62,11 @@
         ]))
 
         (add-pkg-deps [pkgs.kubectl])
-        (set-env "KUBECONFIG" (noescape "~/.config/kube/claude.yaml"))
-        (readonly (noescape "~/.config/kube/claude.yaml"))
+        (set-env-path readonly "KUBECONFIG" (noescape "~/.config/kube/claude.yaml"))
         (fwd-env "KUBECACHEDIR")
 
-        (fwd-env "RUSTUP_HOME")
-        (fwd-env "CARGO_HOME")
-        (mkdir-readwrite (noescape "~/.local/share/rustup"))
-        (mkdir-readwrite (noescape "~/.local/share/cargo"))
+        (fwd-env-path mkdir-readwrite "RUSTUP_HOME")
+        (fwd-env-path mkdir-readwrite "CARGO_HOME")
 
         (mkdir-readwrite (noescape "~/.cache/uv"))
         (mkdir-readwrite (noescape "~/.local/share/uv"))

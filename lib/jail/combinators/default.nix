@@ -1,14 +1,16 @@
 [
   ./fake-machine-id.nix
+  ./fwd-env-path.nix
   ./gtk.nix
   ./gui.nix
-  ./qt.nix
   ./mkdir-readonly.nix
   ./mkdir-readwrite.nix
   ./mkdir-ro-bind.nix
-  ./ro-bind-symlink-and-target.nix
   ./mkdir-rw-bind.nix
+  ./qt.nix
+  ./ro-bind-symlink-and-target.nix
   ./secrets.nix
+  ./set-env-path.nix
   ./tray.nix
   ./unsafe-dev-bind.nix
   ./unsafe-dev.nix

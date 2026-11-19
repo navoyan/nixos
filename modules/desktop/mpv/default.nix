@@ -25,8 +25,7 @@
     with combinators; [
       # detect-lang script:
       (add-pkg-deps [detectLang])
-      (fwd-env "CARGO_HOME")
-      (mkdir-readwrite (noescape "~/.local/share/cargo"))
+      (fwd-env-path mkdir-readwrite "CARGO_HOME")
       (mkdir-readwrite (noescape "~/.cache/rust-script"))
 
       # mpv dirs:
