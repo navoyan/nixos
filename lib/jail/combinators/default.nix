@@ -1,4 +1,5 @@
 [
+  ./editor.nix
   ./fake-machine-id.nix
   ./fwd-env-path.nix
   ./gtk.nix

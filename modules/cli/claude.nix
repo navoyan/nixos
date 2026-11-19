@@ -6,6 +6,7 @@
     permissions = combinators:
       with combinators; [
         network
+        editor
 
         # nix:
         (add-pkg-deps [pkgs.nix])
@@ -35,17 +36,6 @@
         (mkdir-readwrite (noescape "~/projects"))
         (defer (readwrite (noescape "~/nixos")))
         (mkdir-readwrite (noescape "~/vaults"))
-
-        ## workflow
-
-        (add-pkg-deps [pkgs.git pkgs.delta])
-        (readonly (noescape "~/.config/git"))
-
-        (fwd-env "EDITOR")
-        (add-pkg-deps [pkgs.neovim])
-        (readonly (noescape "~/.config/nvim"))
-        (mkdir-readonly (noescape "~/.local/share/nvim"))
-        (mkdir-readwrite (noescape "~/.local/state/nvim"))
 
         ## tools
 

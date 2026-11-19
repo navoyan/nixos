@@ -33,6 +33,7 @@ in {
         xdg-open
         xdg-desktop-portal
         notifications
+        editor
 
         (add-pkg-deps [
           thirdPartyScripts.ytAdsBypass
@@ -70,13 +71,6 @@ in {
         (add-pkg-deps [pkgs.kitty])
         (readonly (noescape "~/.config/kitty"))
         (mkdir-readwrite (noescape "~/.cache/kitty"))
-
-        # nvim:
-        (add-pkg-deps [pkgs.neovim pkgs.git])
-        (readonly (noescape "~/.config/nvim"))
-        (mkdir-readwrite (noescape "~/.cache/nvim"))
-        (mkdir-readonly (noescape "~/.local/share/nvim"))
-        (mkdir-readonly (noescape "~/vaults"))
 
         # yazi:
         (add-pkg-deps [pkgs.yazi])
