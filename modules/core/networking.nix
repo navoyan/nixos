@@ -1,5 +1,10 @@
-{
-  networking.networkmanager.enable = true;
+{lib, ...}: let
+  inherit (lib.modules) mkForce;
+in {
+  networking.networkmanager = {
+    enable = true;
+    dns = mkForce "none";
+  };
 
   services.avahi = {
     enable = true;
