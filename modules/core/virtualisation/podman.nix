@@ -1,10 +1,6 @@
 {
-  virtualisation.containers = {
-    enable = true;
-    containersConf.settings = {
-      containers.pids_limit = 20480;
-    };
-  };
+  virtualisation.containers.enable = true;
+
   virtualisation.podman = {
     enable = true;
     dockerCompat = true;
